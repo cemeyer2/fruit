@@ -1,0 +1,11 @@
+module common
+    implicit none
+     REAL    R
+end module common
+
+program hello
+     use common
+
+     print *, "Hello World"
+     stop
+  end program hello

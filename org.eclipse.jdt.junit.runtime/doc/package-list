@@ -1,0 +1,16 @@
+edu.uiuc.cs427.nibbler.fruit.punit
+edu.uiuc.cs427.nibbler.fruit.punit.views
+org.eclipse.jdt.internal.junit
+org.eclipse.jdt.internal.junit.buildpath
+org.eclipse.jdt.internal.junit.launcher
+org.eclipse.jdt.internal.junit.model
+org.eclipse.jdt.internal.junit.refactoring
+org.eclipse.jdt.internal.junit.runner
+org.eclipse.jdt.internal.junit.runner.junit3
+org.eclipse.jdt.internal.junit.ui
+org.eclipse.jdt.internal.junit.util
+org.eclipse.jdt.internal.junit.wizards
+org.eclipse.jdt.junit
+org.eclipse.jdt.junit.launcher
+org.eclipse.jdt.junit.model
+org.eclipse.jdt.junit.wizards

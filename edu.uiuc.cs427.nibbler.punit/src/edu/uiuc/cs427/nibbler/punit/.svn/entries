@@ -1,0 +1,53 @@
+8
+
+dir
+7217
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/src/edu/uiuc/cs427/nibbler/punit
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-04T18:00:48.566012Z
+7197
+cemeyer2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+PUnitPlugin.java
+file
+
+
+
+
+2008-12-04T18:42:05.843000Z
+3027d6fd6920805f5794453ad3bf495b
+2008-11-27T06:21:34.450099Z
+6943
+pguela2
+has-props
+
+model
+dir
+
+provider
+dir
+
+util
+dir
+
+views
+dir
+

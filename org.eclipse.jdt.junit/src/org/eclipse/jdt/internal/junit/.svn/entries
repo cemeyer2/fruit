@@ -1,0 +1,88 @@
+8
+
+dir
+6817
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+BasicElementLabels.java
+file
+
+
+
+
+2008-11-20T16:02:00.000000Z
+dbe680284bc8c0409f3fd74d6ab2c8ed
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+JUnitPropertyTester.java
+file
+
+
+
+
+2008-11-20T16:01:56.046000Z
+89c8e91a4d855c20b0d9bf03889a13a2
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+Messages.java
+file
+
+
+
+
+2008-11-20T16:01:56.062000Z
+947738173d22a169a5db0a51dc6c0833
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+buildpath
+dir
+
+launcher
+dir
+
+model
+dir
+
+refactoring
+dir
+
+ui
+dir
+
+util
+dir
+
+wizards
+dir
+

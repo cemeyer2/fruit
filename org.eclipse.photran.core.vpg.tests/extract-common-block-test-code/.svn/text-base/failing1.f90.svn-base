@@ -1,0 +1,17 @@
+program p
+INTEGER A, B, C
+COMMON /VARS/ A, B, C
+  A = 1
+  B = 2
+  C = 3
+  call printit()
+
+contains
+
+  subroutine printit()
+      INTEGER A, B, C, X
+      COMMON /VARS/ A, B, C
+      X = A + B + C
+      print *, X
+  end subroutine printit
+end

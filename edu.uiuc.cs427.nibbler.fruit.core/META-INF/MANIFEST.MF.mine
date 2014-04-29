@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Fruit Core Plug-in
+Bundle-SymbolicName: edu.uiuc.cs427.nibbler.fruit.core;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: edu.uiuc.cs427.nibbler.fruit.core.Activator
+Bundle-Vendor: CS427 Team Nibbler
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ org.eclipse.cdt.core;bundle-version="5.0.0",
+ org.eclipse.cdt.ui;bundle-version="5.0.0",
+ org.eclipse.cdt.make.ui;bundle-version="5.0.0",
+ org.eclipse.cdt.launch;bundle-version="5.0.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.uiuc.cs427.nibbler.fruit.core;x-friends:="edu.uiuc.cs427.nibbler.fruit.core.tests";
+  uses:="org.eclipse.cdt.launch.internal,
+   org.osgi.framework,
+   org.eclipse.ui.plugin,
+   org.eclipse.debug.core",
+ edu.uiuc.cs427.nibbler.fruit.core.driverGenerator;x-friends:="edu.uiuc.cs427.nibbler.fruit.core.tests",
+ edu.uiuc.cs427.nibbler.fruit.core.parser;x-friends:="edu.uiuc.cs427.nibbler.fruit.core.tests"

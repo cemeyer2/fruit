@@ -1,0 +1,85 @@
+8
+
+dir
+7092
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core/src/edu/uiuc/cs427/nibbler/fruit/core
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-03T02:28:12.408511Z
+7070
+gelsomi1
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+Activator.java
+file
+
+
+
+
+2008-12-24T18:48:39.906000Z
+049f14ede1fba3b34b6a66481d8bb7b1
+2008-10-26T19:41:09.556867Z
+5970
+gelsomi1
+has-props
+
+FRUITTestLaunchShortcut.java
+file
+
+
+
+
+2008-12-24T18:48:39.765000Z
+ef545864bd4b9197754520e45437cf6b
+2008-10-26T19:41:09.556867Z
+5970
+gelsomi1
+has-props
+
+FruitLaunchManager.java
+file
+
+
+
+
+2008-12-03T15:25:37.218000Z
+defe7eb34fb9dccf6acd120a8499b558
+2008-12-03T02:28:12.408511Z
+7070
+gelsomi1
+
+RunFRUITTestHandler.java
+file
+
+
+
+
+2008-12-03T15:25:37.765000Z
+f75db8b2b5df3b30a887d3597c4b1efb
+2008-12-03T01:37:57.467164Z
+7067
+gelsomi1
+has-props
+
+driverGenerator
+dir
+
+parser
+dir
+

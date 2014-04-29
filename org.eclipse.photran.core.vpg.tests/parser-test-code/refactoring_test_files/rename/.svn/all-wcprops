@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename
+END
+Test2Original.f90
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test2Original.f90
+END
+Test4Original.f90
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test4Original.f90
+END
+Test4Refactored.f90
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test4Refactored.f90
+END
+Test3Original.f90
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test3Original.f90
+END
+Test1bRefactored.f90
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test1bRefactored.f90
+END
+Test1abOriginal.f90
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test1abOriginal.f90
+END
+Test1aRefactored.f90
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/refactoring_test_files/rename/Test1aRefactored.f90
+END

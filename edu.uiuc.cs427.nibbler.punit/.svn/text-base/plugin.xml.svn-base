@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="PUnit"
+            icon="$nl$/icons/full/eview16/punit.gif"
+            category="org.eclipse.photran.ui.views"
+            class="edu.uiuc.cs427.nibbler.punit.views.PUnitView"
+            id="edu.uiuc.cs427.nibbler.punit.views.PUnitView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="edu.uiuc.cs427.nibbler.punit.views.PUnitView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+</plugin>

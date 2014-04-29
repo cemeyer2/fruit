@@ -1,0 +1,149 @@
+8
+
+dir
+6817
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+.api_description
+file
+
+
+
+
+2008-11-20T16:02:00.640000Z
+df5f5d9d4a87c2549aaa496460b5aff2
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+
+.classpath
+file
+
+
+
+
+2008-11-20T16:01:49.765000Z
+7dfc337a1ea5247d85247f102e53ce15
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+.project
+file
+
+
+
+
+2008-11-20T16:01:50.750000Z
+2d388e11f6cdd2e9c5ee927440dd0ccd
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+.settings
+dir
+
+META-INF
+dir
+
+about.html
+file
+
+
+
+
+2008-11-20T16:02:07.234000Z
+3cf3e8db180b7ae1974a4fa11c9adebe
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+bin
+dir
+
+build.properties
+file
+
+
+
+
+2008-11-20T16:02:00.640000Z
+a760503c946116c9bb68926dc27a535f
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+contexts.xml
+file
+
+
+
+
+2008-11-20T16:01:50.750000Z
+391a500424731c3549226f6694ca9711
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+icons
+dir
+
+plugin.properties
+file
+
+
+
+
+2008-11-20T16:02:00.625000Z
+a3d058f4921381b352353c8a73b13eff
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+plugin.xml
+file
+
+
+
+
+2008-11-20T16:02:07.250000Z
+e9a47d44bcc1b8b4474722c874c85892
+2008-11-09T00:15:18.875709Z
+6369
+pguela2
+has-props
+
+schema
+dir
+
+src
+dir
+

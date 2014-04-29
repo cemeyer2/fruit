@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="Java Development Tools JUnit support" version="1.1">
+    <plugin id="org.eclipse.jdt.junit"/>
+    <package name="org.eclipse.jdt.junit">
+        <type extend="false" instantiate="false" name="JUnitCore"/>
+    </package>
+    <package name="org.eclipse.jdt.junit.launcher">
+        <type extend="false" name="JUnitLaunchConfigurationTab"/>
+    </package>
+    <package name="org.eclipse.jdt.junit.model">
+        <type implement="false" name="ITestCaseElement"/>
+        <type implement="false" name="ITestElement"/>
+        <type implement="false" name="ITestElementContainer"/>
+        <type implement="false" name="ITestRunSession"/>
+        <type implement="false" name="ITestSuiteElement"/>
+    </package>
+</component>

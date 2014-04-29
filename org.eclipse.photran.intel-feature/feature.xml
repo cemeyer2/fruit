@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.photran.intel"
+      label="%featureName"
+      version="4.0.4"
+      provider-name="%providerName"
+      os="linux">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="Photran" url="http://download.eclipse.org/technology/photran/updates/eclipse3.4cdt5.0"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.photran_feature" version="4.0.4" match="perfect"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.photran.managedbuilder.intel.ui"
+         os="linux"
+         download-size="0"
+         install-size="0"
+         version="4.0.4"/>
+
+   <plugin
+         id="org.eclipse.photran.core.intel"
+         os="linux"
+         download-size="0"
+         install-size="0"
+         version="4.0.4"/>
+
+</feature>

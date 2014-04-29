@@ -1,0 +1,54 @@
+8
+
+dir
+7217
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/src/edu/uiuc/cs427/nibbler/punit/provider
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-11-24T21:54:32.999104Z
+6908
+cemeyer2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+FruitAssertionMessageContentProvider.java
+file
+
+
+
+
+2008-12-04T18:41:57.828000Z
+490cc1c01fc30a00cd42827b7a019383
+2008-11-24T20:52:07.895224Z
+6907
+cemeyer2
+has-props
+
+FruitAssertionMessageLabelProvider.java
+file
+
+
+
+
+2008-12-04T18:41:57.796000Z
+0accdb39f05a8a99c39ee066ae609628
+2008-11-24T21:54:32.999104Z
+6908
+cemeyer2
+has-props
+

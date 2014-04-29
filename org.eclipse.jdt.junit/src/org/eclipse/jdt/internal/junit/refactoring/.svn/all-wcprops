@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring
+END
+ProjectRenameParticipant.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/ProjectRenameParticipant.java
+END
+LaunchConfigRenameChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/LaunchConfigRenameChange.java
+END
+TypeRenameParticipant.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/TypeRenameParticipant.java
+END
+IChangeAdder.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/IChangeAdder.java
+END
+LaunchConfigChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/LaunchConfigChange.java
+END
+JUnitRenameParticipant.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/JUnitRenameParticipant.java
+END
+LaunchConfigSetAttributeChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/LaunchConfigSetAttributeChange.java
+END
+LaunchConfigurationContainer.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/fa08/cs427/!svn/ver/6369/Nibbler/edu.uiuc.cs427.nibbler.fruit.punit/trunk/src/org/eclipse/jdt/internal/junit/refactoring/LaunchConfigurationContainer.java
+END

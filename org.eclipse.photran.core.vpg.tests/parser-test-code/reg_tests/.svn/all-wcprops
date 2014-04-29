@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests
+END
+ParenSlash.F90
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/ParenSlash.F90
+END
+ImplicitTest.F90
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/ImplicitTest.F90
+END
+BlockData.F90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/BlockData.F90
+END
+OperatorStarTest.F90
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/OperatorStarTest.F90
+END
+bug126548.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug126548.f90
+END
+bug118965.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug118965.f90
+END
+bug193031.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug193031.f90
+END
+LineContinuationTest.F90
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/LineContinuationTest.F90
+END
+FormatTest.F90
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/FormatTest.F90
+END
+Function.F90
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/Function.F90
+END
+bug195801.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug195801.f90
+END
+DblPrecDim.F90
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/DblPrecDim.F90
+END
+formatbugs.f90
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/formatbugs.f90
+END
+bug126546.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug126546.f90
+END
+IntentTest.F90
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/IntentTest.F90
+END
+valref.f90
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/valref.f90
+END
+bug138221.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug138221.f90
+END
+ConstSubstring.F90
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/ConstSubstring.F90
+END
+AssignResult.F90
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/AssignResult.F90
+END
+bug126547.f90
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/parser-test-code/reg_tests/bug126547.f90
+END

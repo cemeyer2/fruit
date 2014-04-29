@@ -1,0 +1,25 @@
+CS427 - MP5 - Group Blackberry- 
+Patrice Guelah Sofak (pguela2) 
+Charles Meyer (cemeyer2)
+Saeidreza Shifteh Far (sshifte2)
+
+Metrics
+
+"Nexted Block Depth" in method processLine (class OldGFortranErrorParser
+"McCabe Cyclomatic complexity" in method yylex (class FixedFormLexerPhase1)             
+"Number of parameters" in StmtMustStartWithOneOf (class FreeFormLexerPhase2)
+
+Code Coverage
+
+ - FortranRefactoring 7.1% 
+    Activator. java 88%  RefactorTestCacse.java 2.8% 
+  -IntroImpliciteNoneRefactoring.java 2.4%   
+  IntroImpliciteTestCase.java 3.0% IntroImpliciteTestSuite 0.0% 
+  - RenameRefactoring.java  5.5% 
+   Rename1.java Rename2.java .. Rename8.java 0.0% RenameTestCase.java 1.4% RenameTestSuite.java 78.7%   
+
+The tests do not do a good job at testing theses classes because the 
+coverages are very low.  7.1% , 2.4% and 5.5%  are way too low. 
+   
+    
+Coverage is 15% . It is low 

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests
+END
+AbstractParserTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/AbstractParserTestSuite.java
+END
+ParserTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/ParserTestSuite.java
+END
+AbstractParserTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/AbstractParserTestCase.java
+END
+SourceReproductionTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/SourceReproductionTestCase.java
+END
+AbstractSourceEditorTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/AbstractSourceEditorTestCase.java
+END
+SourceReproductionTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/SourceReproductionTestSuite.java
+END
+ParserTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/fa08/cs427/!svn/ver/4963/Blackberry/MP5/trunk/src/org/eclipse/photran/internal/core/tests/ParserTestCase.java
+END
