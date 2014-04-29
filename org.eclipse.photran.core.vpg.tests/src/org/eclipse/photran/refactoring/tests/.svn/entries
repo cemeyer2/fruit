@@ -1,66 +1,0 @@
-8
-
-dir
-5773
-https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Blackberry/MP5/trunk/src/org/eclipse/photran/refactoring/tests
-https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
-
-
-
-2008-10-12T04:58:04.520581Z
-5686
-pguela2
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
-
-RefactoringTestCase.java
-file
-
-
-
-
-2007-08-23T17:40:35.000000Z
-b111addb6df4d86afa05681df5ee2d8a
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-has-props
-
-introimplicitnone
-dir
-
-rename
-dir
-
-CVS
-dir
-
-Activator.java
-file
-
-
-
-
-2007-08-23T17:40:35.000000Z
-7d9219eb758c6ba2e01212339520f89b
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-has-props
-
-extractcommonblock
-dir
-

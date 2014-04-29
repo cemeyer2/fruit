@@ -1,127 +1,0 @@
-8
-
-dir
-5773
-https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Blackberry/MP5/trunk
-https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
-
-
-
-2008-10-12T05:01:05.252996Z
-5697
-pguela2
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
-
-.classpath
-file
-
-
-
-
-2007-10-19T17:18:40.000000Z
-a6a2b8d49211f601f8b095a1e6b08dc8
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-has-props
-
-META-INF
-dir
-
-parser-test-code
-dir
-
-.project
-file
-
-
-
-
-2008-10-08T16:29:25.156000Z
-b38bffd2090b4e50898e65637a603a89
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-has-props
-
-NOTE
-file
-
-
-
-
-2007-08-23T17:40:36.000000Z
-831a07c874e3b90ef96f7b0bc379b054
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-
-src
-dir
-
-intro-implicit-test-code
-dir
-
-source-editor-test-code
-dir
-
-build.properties
-file
-
-
-
-
-2007-08-23T17:40:36.000000Z
-72f1e780fe4bd58f12d3d4445498055e
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-has-props
-
-rename-test-code
-dir
-
-Makefile
-file
-
-
-
-
-2007-08-23T17:40:36.000000Z
-ecb65c78670320d2c6f9db1a144aaa22
-2008-10-08T17:40:42.939945Z
-4963
-cemeyer2
-
-extract-common-block-test-code
-dir
-
-README
-file
-
-
-
-
-2008-10-13T16:19:22.921875Z
-9f985f9f829aa8b5dc2ce46dd20367f6
-2008-10-12T05:01:05.252996Z
-5697
-pguela2
-
-.settings
-dir
-
