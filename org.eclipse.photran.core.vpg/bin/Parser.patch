@@ -1,0 +1,118 @@
+--- org/eclipse/photran/internal/core/parser/Parser.java	2007-09-01 21:31:35.000000000 -0600
++++ ./Parser.java.new	2007-09-01 21:27:39.000000000 -0600
+@@ -179,14 +179,14 @@
+             
+             switch (action)
+             {
+-               case RecoveryTable.DISCARD_STATE_ACTION:
+-                   if (stateStack.size() > 1)
+-                   {
+-                       stateStack.pop();
+-                       discardedSymbols.addFirst(valueStack.pop());
+-                   }
+-                   doneParsing = stateStack.size() <= 1;
+-                   break;
++                case RecoveryTable.DISCARD_STATE_ACTION:
++                	if (stateStack.size() > 1)
++            		{
++                		stateStack.pop();
++                		discardedSymbols.addFirst(valueStack.pop());
++            		}
++                    doneParsing = stateStack.size() <= 1;
++                    break;
+ 
+                 case RecoveryTable.DISCARD_TERMINAL_ACTION:
+                     discardedSymbols.addLast(lookaheadToken);
+@@ -13979,6 +13979,8 @@
+         protected abstract void visitTopDownUsing(ASTVisitor visitor, boolean shouldVisitRoot);
+         
+         protected abstract void visitBottomUpUsing(ASTVisitor visitor, boolean shouldVisitRoot);
++        
++        public abstract void visitUsing(GenericParseTreeVisitor visitor);
+     
+         ///////////////////////////////////////////////////////////////////////////
+         // Debugging Output
+@@ -14003,7 +14005,7 @@
+         // Source Code Reproduction
+         ///////////////////////////////////////////////////////////////////////////
+         
+-        public abstract void printOn(PrintStream out);
++        public abstract String printOn(PrintStream out, String currentPreprocessorDirective);
+     }
+ 
+     public static class InteriorNode extends CSTNode
+@@ -14020,6 +14022,7 @@
+             @Override public void visitBottomUpUsing(CSTVisitor visitor) {}
+             @Override protected void visitTopDownUsing(ASTVisitor visitor, boolean shouldVisitRoot) {}
+             @Override protected void visitBottomUpUsing(ASTVisitor visitor, boolean shouldVisitRoot) {}
++            @Override public void visitUsing(GenericParseTreeVisitor visitor) {}
+             
+             public String toString(int numSpaces)
+             {
+@@ -14030,9 +14033,9 @@
+                 return sb.toString();
+             }
+     
+-            public void printOn(PrintStream out)
++            @Override public String printOn(PrintStream out, String currentPreprocessorDirective)
+             {
+-                ;
++                return currentPreprocessorDirective;
+             }
+         }
+         
+@@ -14291,7 +14294,18 @@
+         {
+             ;
+         }
+-    
++
++        @Override public void visitUsing(GenericParseTreeVisitor visitor)
++        {
++            visitor.visitParseTreeNode(this);
++            
++            visitor.preparingToVisitChildrenOf(this);
++            if (childArray != null)
++                for (int i = 0; i < numChildren; i++)
++                    childArray[i].visitUsing(visitor);
++            visitor.doneVisitingChildrenOf(this);
++        }
++        
+         ///////////////////////////////////////////////////////////////////////////
+         // Debugging Output
+         ///////////////////////////////////////////////////////////////////////////
+@@ -14314,11 +14328,12 @@
+         // Source Code Reproduction
+         ///////////////////////////////////////////////////////////////////////////
+         
+-        public void printOn(PrintStream out)
++        @Override public String printOn(PrintStream out, String currentPreprocessorDirective)
+         {
+             if (childArray != null)
+                 for (int i = 0; i < numChildren; i++)
+-                    childArray[i].printOn(out);
++                    currentPreprocessorDirective = childArray[i].printOn(out, currentPreprocessorDirective);
++            return currentPreprocessorDirective;
+         }
+     }
+     
+@@ -14395,13 +14410,16 @@
+         // Source Code Reproduction
+         ///////////////////////////////////////////////////////////////////////////
+         
+-        public void printOn(PrintStream out)
++        
++        @Override public String printOn(PrintStream out, String currentPreprocessorDirective)
+         {
+-            super.printOn(out);
++            currentPreprocessorDirective = super.printOn(out, currentPreprocessorDirective);
+     
+             if (symbolsDiscardedDuringErrorRecovery != null)
+                 for (CSTNode discardedSymbol : symbolsDiscardedDuringErrorRecovery)
+-                    discardedSymbol.printOn(out);
++                    currentPreprocessorDirective = discardedSymbol.printOn(out, currentPreprocessorDirective);
++            
++            return currentPreprocessorDirective;
+         }
+     }
+ }

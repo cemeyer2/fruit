@@ -1,0 +1,54 @@
+8
+
+dir
+7797
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit.test/src/edu/uiuc/cs427/nibbler/punit/test
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-04T21:13:32.650246Z
+7248
+pguela2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+PUnitTestPlugin.java
+file
+
+
+
+
+2008-12-09T18:59:42.078000Z
+61c7fad91f13e3cda28883dc82594963
+2008-12-04T21:13:32.650246Z
+7248
+pguela2
+has-props
+
+PUnitViewTest.java
+file
+
+
+
+
+2008-12-09T18:59:42.078000Z
+b9a74c2c1621223e599b2df97a952f79
+2008-12-04T21:13:32.650246Z
+7248
+pguela2
+has-props
+

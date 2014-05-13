@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<appendix id="appendix3">
+	<title>Test Suite Usage</title>
+	<section id="manual-ap3">
+		<title>Manual Test Procedures</title>
+		<section id="ManualTest1-ap3">
+			<title>Verifying Empty  View</title>
+			<para>
+				<emphasis>
+					<link linkend='Installation-ap1'>
+						This test assumes that your Eclipse workspace has been set up according to the instructions earlier in this
+						document. If you have not done so, please go back and set up your workspace with all of the source code
+						properly before continuing with this test.
+					</link>
+				</emphasis>
+				<orderedlist>
+					<listitem>
+						Right click on any of the Nibbler projects in your workspace, select Run As > Eclipse Application.
+					</listitem>
+					<listitem>
+						Once the new instance of Eclipse loads, select the Window Menu > Show View > Other
+					</listitem>
+					<listitem>
+						Expand the Fortran folder. Select the PUnit view, click ok.
+						<figure>
+							<title>Select the PUnit View</title>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="images/ap3-manualTest1-1.jpeg" format="jpeg" /> 
+								</imageobject>
+							</mediaobject>
+						</figure>
+					</listitem>
+					<listitem>
+						Verify that the view that launches matches the screenshot below. <emphasis>Note that your tabs might not
+						match exactly the ones in the figure below, that is ok.</emphasis>
+						<figure>
+							<title>The Empty Punit View</title>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="images/ap3-manualTest1-2.jpeg" format="jpeg" /> 
+								</imageobject>
+							</mediaobject>
+						</figure>						
+					</listitem>
+				</orderedlist>
+			</para>
+		</section>
+		<section>
+			<title>Running The Sample FRUIT Tests</title>
+			<emphasis>
+				<link linkend='Installation-ap1'>
+					This test assumes that your Eclipse workspace has been set up according to the instructions earlier in this
+					document. If you have not done so, please go back and set up your workspace with all of the source code
+					properly before continuing with this test.
+				</link>
+			</emphasis>
+			<orderedlist>
+				<listitem>
+					Right click on any of the Nibbler projects in your workspace, select Run As > Eclipse Application.
+				</listitem>
+				<listitem>
+					Once the new instance of Eclipse loads, install the Subverse Plugin as <link linkend='Subverse-ap1'>described
+					earlier in this document</link>.
+				</listitem>
+				<listitem>
+					Check out the Nibbler code into the new instance of Eclipse as <link linkend='Nibbler-ap1'>described earlier in
+					this document</link> with one minor difference. Once the screen appears with the check boxes next to each project,
+					uncheck all projects except for FruitExample1, then continue per the instructions.
+				</listitem>
+				<listitem>
+					The checked out project, FruitExample1, is a Fortran Project containing the sample code that is shipped with
+					FRUIT. Because it is a Fortran Project, it contains metadata that references specific locations of compliers and
+					other machine dependent components that are specific to the computer where the project was first created. For this
+					reason, create a new Fortran Project by selecting the File menu > New > Other > Expand the Fortran Folder > Fortran
+					Project. 
+				</listitem>
+				<listitem>
+					Name the project 'Calculator' or something similar. For Project type, select Executable (Gnu Fortran). Uncheck the
+					"Show project types and toolchains only if they are supported on the platform" checkbox, then select GCC Tool Chain
+					under Toolchain. Click finish.
+				</listitem>
+				<listitem>
+					Right click on the new project, select Properties. On the resulting window, click on C/C++ Build. Select "All
+					Configurations" on the drop down menu. Then select settings under C/C++ build. Click on the Binary Parsers
+					tab. Deselect any of the checked items, then check Elf Parser. Finally, click once on Elf Parser and click the
+					Move Up button until it is at the top of the list.
+				</listitem>
+				<listitem>
+					From the FruitExample1 project, right click on <filename>calculator.f90</filename>, and select Copy. Then right click
+					on the new project, and select paste. 
+				</listitem>
+				<listitem>
+					Right click on the new project, select New > Other. Expan the Fortran folder, then expand the FRUIT folder. Select
+					New FRUIT Test Case. In the next window, Expand workspace, then single left click on the name of the project you
+					copied <filename>calculator.f90</filename> into. Then select <filename>calculator.f90</filename> in the right pane
+					by checking its check box. Select ok. For module under test, enter <code>calculator</code> into the text box. Click
+					ok.
+				</listitem>
+				<listitem>
+					Open the newly created <filename>calculator_test.f90</filename> file in the editor by double clicking on it. Delete
+					all its contents. Then open <filename>calculator_test.f90</filename> from the FruitExample1 project. Copy all of its
+					contents and paste them into the now empty <filename>calculator_test.f90</filename> file. 
+				</listitem>
+				<listitem>
+					Right click on the new project, select Run FRUIT Test. The PUnit view should appear and be populated. Verify
+					that its contents match the figure below. <emphasis>Note that your tabs might be different than those shown
+					in the figure, that is acceptable</emphasis>.
+					<figure>
+						<title>PUnit View After Manual Test</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap2-punitView.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</listitem>
+			</orderedlist>
+		</section>
+	</section>
+	<section id="automated-ap3">
+		<title>Automated Test Procedures</title>
+		<section id="AutomatedTest1-ap3">
+			<title>FruitLaunchManagerTest</title>
+			<para>
+                The Fruit Automated tests requires a specially setup workspace to run the test on.  This workspace is included
+                in the edu.uiuc.cs427.nibbler.fruit.tests plugin.
+            </para>
+           
+				<orderedlist>
+					<listitem>
+			            In Eclipse right click on the edu.uiuc.cs427.nibbler.fruit.tests and select Run As > Run Configurations...
+					</listitem>
+					<listitem>
+                        In the Run Configurations Dialog Box create a new JUnit Plugin Test Configuration
+					</listitem>
+					<listitem>
+					   On the test tab select run all tests in the selected project, and specify edu.uiuc.cs427.nibbler.fruit.tests as the project.
+					</listitem>
+					<listitem>
+                        On the main tab, for the workspace data field, select the Workspace button and select 
+                        edu.uiuc.cs427.nibbler.fruit.tests/src/workspaceForFruitLaunchManagerTest.  Verify that the clear
+                        checkbox is not selected.
+					</listitem>
+					<listitem>
+                        Select Run and this configuration will run the FruitLaunchManagerTest using the workspace provided at
+                        edu.uiuc.cs427.nibbler.fruit.tests/src/workspaceForFruitLaunchManagerTest
+					</listitem>
+				</orderedlist>
+		</section>
+	</section>
+</appendix>

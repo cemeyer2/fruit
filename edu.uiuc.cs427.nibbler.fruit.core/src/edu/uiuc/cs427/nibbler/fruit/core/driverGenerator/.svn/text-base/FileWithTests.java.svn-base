@@ -1,0 +1,167 @@
+package edu.uiuc.cs427.nibbler.fruit.core.driverGenerator;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+
+
+public class FileWithTests {
+	private String path;
+	private Map<String, TestLoc> tests;
+	
+
+
+	private class TestLoc {
+		
+		private String name;
+		private int line;
+		private String spec;
+		public TestLoc (String testName, int lineNumber)
+		{
+			this.setSpecification("");
+			this.setName(testName);
+			this.setLine(lineNumber);
+		}
+		public TestLoc(String testName, int lineNumber, String specification) {
+			this.setSpecification(specification);
+			this.setName(testName);
+			this.setLine(lineNumber);
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setLine(int line) {
+			this.line = line;
+		}
+		public int getLine() {
+			return line;
+		}
+		public void setSpecification(String spec) {
+			this.spec = spec;
+		}
+		public String getSpecification() {
+			if (spec.equalsIgnoreCase(""))
+			{
+				String temp = this.getName();
+				temp = temp.substring(5);
+				temp = temp.replace('_', ' ');
+				return temp;
+			}
+			return spec;
+		}
+	}
+
+	public FileWithTests(String pathName)
+	{
+		this.path = pathName;
+		this.tests = new HashMap<String, TestLoc>();
+	}
+	
+	/*
+	 * Does the file contain the named test?
+	 * @param testName is the name of the test we are looking for.
+	 */
+	public boolean contains(String testName)
+	{
+		if (tests.containsKey(testName))
+			return true;
+		else
+			return false;
+	}
+
+	/*
+	 * Returns the line number in the source file where the test name indicated by the parameter exists.
+	 * @param String containing the name of the test
+	 * @returns Returns the line number in the source file that the test is on or '-1' if test is not found.
+	 */
+	public int getTestLineNumber (String testName)
+	{
+		if (this.contains(testName))
+		{
+			return tests.get(testName).getLine();
+		}
+		else
+			return -1;
+	}
+	
+	/*
+	 * Adds a test to this file object.
+	 * @param testName is the name of the test
+	 * @param lineNumber is the line number in the file where the test is declared
+	 */
+	public void addTest (String testName, int lineNumber)
+	{
+		this.tests.put(testName, new TestLoc(testName, lineNumber));
+	}
+	
+	public void addTest (String testName, int lineNumber, String specification)
+	{
+		this.tests.put(testName, new TestLoc(testName, lineNumber, specification));
+	}
+	
+	public boolean addSpecToTest (String testName, String specification)
+	{
+		if (this.contains(testName))
+		{
+			tests.get(testName).setSpecification(specification);
+			return true;
+		}
+		return false;
+	}
+	
+	public String getPath (){return path;}
+	
+	public String getRootFileName ()
+	{
+		String wholeName = new File(path).getName();
+		String name = wholeName.split("\\.")[0];
+		return name;
+	}
+	
+	public Map<String, String> getTestNamesAndSpecs ()
+	{
+		Map<String, String> testNames = new HashMap<String, String>();
+		for (String testName : tests.keySet())
+		{
+			testNames.put(testName, tests.get(testName).getSpecification());
+		}
+		return testNames;
+	}
+	
+	public Vector<String> generateFruitBasketOutput ()
+	{
+		Vector<String> out = new Vector<String>();
+		try
+		{
+			out.add("      use " + getRootFileName());
+			
+				Map<String, String> testsAndSpecs = getTestNamesAndSpecs();
+				for(String testName : testsAndSpecs.keySet())
+				{
+					out.add("");
+					out.add("      call setup");
+					out.add("      write (*, *) \"  ..running test: " + testName + "\"");
+					out.add("      call set_unit_name ('" + testName + "')");
+					out.add("      call " + testName);
+					out.add("      if (.not. is_last_passed()) then");
+					out.add("         write (*, *)");
+					out.add("         write (*, *) '  Unsatisfied spec:'");
+					out.add("         write (*, *) '  -- " + testsAndSpecs.get(testName) + "'");
+					out.add("         write (*, *)");
+					out.add("      end if");
+					out.add("      call teardown");
+					out.add("");
+				}
+		}
+		catch(Exception ex)
+		{
+			
+		}
+		return out;
+	}
+
+}

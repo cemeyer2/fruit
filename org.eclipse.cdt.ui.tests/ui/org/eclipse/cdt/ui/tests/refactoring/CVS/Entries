@@ -7,6 +7,7 @@
 /TestSourceFile.java/1.1/Wed Mar 12 09:53:28 2008//TCDT_5_0_0
 D/extractconstant////
 D/extractfunction////
+D/extractlocalvariable////
 D/gettersandsetters////
 D/hidemethod////
 D/implementmethod////

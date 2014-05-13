@@ -1,0 +1,55 @@
+package edu.uiuc.cs427.nibbler.punit.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.uiuc.cs427.nibbler.fruit.core.parser.FruitAssertionMessage;
+/**
+ * The ControlFruitAssertionMessages class maintains the list of 
+ * tests for the viewer. The list contains FruitassertionMessages 
+ * object representing tests results.  
+ *
+ */
+public final class ControlFruitAssertionMessages 
+{
+
+	private static ControlFruitAssertionMessages content;
+	private List<FruitAssertionMessage> messagesList;
+
+	private ControlFruitAssertionMessages() 
+	{
+		messagesList = new ArrayList<FruitAssertionMessage>();
+	}
+	/**
+	 * Add a new test result to the list 
+	 * @param test
+	 */
+	public void addTest(FruitAssertionMessage test)
+	{
+		messagesList.add(test);
+	}
+
+	public static synchronized ControlFruitAssertionMessages getInstance() 
+	{
+		if (content != null) 
+		{
+			return content;
+		} 
+		else 
+		{
+			content = new ControlFruitAssertionMessages();
+			return content;
+		}
+	}
+	
+	public void clear()
+	{
+		messagesList.clear();
+	}
+
+	public List<FruitAssertionMessage> getTestList() 
+	{
+		return messagesList;
+	}
+
+}

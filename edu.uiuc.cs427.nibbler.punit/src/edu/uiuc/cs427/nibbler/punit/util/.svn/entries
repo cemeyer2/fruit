@@ -1,0 +1,53 @@
+8
+
+dir
+8079
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/src/edu/uiuc/cs427/nibbler/punit/util
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-15T14:49:46.973420Z
+7997
+gelsomi1
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+PUnitTableSorter.java
+file
+
+
+
+
+2008-12-09T18:59:04.578000Z
+35329865e46708c17499e6b08de5e9cc
+2008-11-24T21:54:32.999104Z
+6908
+cemeyer2
+has-props
+
+RunFRUITTestHandler.java
+file
+
+
+
+
+2008-12-09T18:59:04.593000Z
+52f7b2586d761600f26a426454d6e51f
+2008-12-15T14:49:46.973420Z
+7997
+gelsomi1
+

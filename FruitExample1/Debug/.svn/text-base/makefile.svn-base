@@ -1,0 +1,51 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+
+# All Target
+all: FruitExample1 calculator_test
+
+# Tool invocations
+FruitExample1: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: MacOS X Fortran Linker'
+	/usr/local/bin/gfortran -o "FruitExample1" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+	
+# CalculatorTest
+calculator_test: calculator.o calculator_test.o fruit_basket_gen.o calculator_test_driver.o
+	@echo 'Building target: $@'
+	@echo 'Invoking: MacOS X Fortran Linker'
+	/usr/local/bin/gfortran -J /Users/alg/I2CS/CS427/fruit_2.6/build  -o "calculator_test_driver" calculator.o calculator_test.o fruit_basket_gen.o calculator_test_driver.o $(LIBS) /Users/alg/I2CS/CS427/fruit_2.6/build/libfruit.a 
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS)$(EXECUTABLES)$(C_DEPS) FruitExample1
+	-@echo ' '
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets

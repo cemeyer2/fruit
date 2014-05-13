@@ -1,0 +1,32 @@
+package edu.uiuc.cs427.nibbler.punit.provider;
+
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.Viewer;
+
+import edu.uiuc.cs427.nibbler.punit.model.ControlFruitAssertionMessages;
+/**
+ * The FruitAssertionMessageContentProvider class is the contain provider for
+ * the PUnit TableViewer. It implements the IStructuredContentProvider interface
+ * method getElements to return the FruitAssertionMessage elements to display 
+ * in the viewer 
+ */
+public class FruitAssertionMessageContentProvider implements IStructuredContentProvider 
+{
+	@Override
+	public Object[] getElements(Object inputElement) 
+	{
+		ControlFruitAssertionMessages messages = ControlFruitAssertionMessages.getInstance();
+		return messages.getTestList().toArray();
+	}
+
+	@Override
+	public void dispose() 
+	{
+	}
+
+	@Override
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) 
+	{
+	}
+}
+

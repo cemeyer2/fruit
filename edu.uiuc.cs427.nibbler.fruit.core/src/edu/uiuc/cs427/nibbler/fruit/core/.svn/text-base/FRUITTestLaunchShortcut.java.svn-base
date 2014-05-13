@@ -1,0 +1,11 @@
+package edu.uiuc.cs427.nibbler.fruit.core;
+
+import org.eclipse.cdt.launch.internal.CApplicationLaunchShortcut;
+import org.eclipse.debug.core.ILaunchConfigurationType;
+
+public class FRUITTestLaunchShortcut extends CApplicationLaunchShortcut
+{
+    /*@Override*/ protected ILaunchConfigurationType getCLaunchConfigType() {
+        return getLaunchManager().getLaunchConfigurationType("org.eclipse.photran.launch.localCLaunch");
+    }
+}

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles
+END
+calculator.f90
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles/calculator.f90
+END
+fruit_basket_gen.f90
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles/fruit_basket_gen.f90
+END
+main.f90
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles/main.f90
+END
+calculator_test_driver.f90
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles/calculator_test_driver.f90
+END
+calculator_test.f90
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/fa08/cs427/!svn/ver/6781/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core.tests/src/testFortranFiles/calculator_test.f90
+END

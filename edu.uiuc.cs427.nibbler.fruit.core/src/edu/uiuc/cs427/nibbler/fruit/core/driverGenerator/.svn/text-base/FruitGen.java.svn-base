@@ -1,0 +1,138 @@
+package edu.uiuc.cs427.nibbler.fruit.core.driverGenerator;
+
+import java.io.BufferedWriter;
+import org.eclipse.core.resources.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Vector;
+
+public class FruitGen {
+
+	private Vector<FileWithTests> fwt;
+	final private String disclaimer = "! Warning, this file is generated automatically and should not be edited!";
+	private void generateDriver (BufferedWriter out)
+	{
+		try
+		{
+			out.write(disclaimer);
+			out.newLine();
+			out.newLine();
+			out.write("program project_test_driver");
+			out.newLine();
+			out.write("   use fruit");
+			out.newLine();
+			out.write("   use fruit_basket_gen");
+			out.newLine();
+			out.write("   call init_fruit");
+			out.newLine();
+			out.write("   call fruit_basket");
+			out.newLine();
+			out.write("   call fruit_summary");
+			out.newLine();
+			out.write("end program project_test_driver");
+			out.newLine();
+		}
+		catch(Exception ex)
+		{
+			
+		}
+		finally
+		{
+			try
+			{
+				out.close();
+			}
+			catch (Exception ex)
+			{
+				
+			}
+		}		
+	}
+	
+	private void writeFruitBasket(BufferedWriter out)
+	{
+		try
+		{
+			out.write(disclaimer);
+			out.newLine();
+			out.newLine();
+			out.write("module fruit_basket_gen");
+			out.newLine();
+			out.write("   use fruit");
+			out.newLine();
+			out.write("contains");
+			out.newLine();
+			out.write("   subroutine all_tests");
+			out.newLine();
+			for (FileWithTests t : fwt)
+			{
+				for (String s : t.generateFruitBasketOutput())
+				{
+					out.write (s);
+					out.newLine();
+				}
+			}
+			out.write("   end subroutine all_tests");
+			out.newLine();
+			out.write("   subroutine fruit_basket");
+			out.newLine();
+			out.write("      call all_tests");
+			out.newLine();
+			out.write("   end subroutine fruit_basket");
+			out.newLine();
+			out.write("end module fruit_basket_gen");
+			out.newLine();
+		}
+		catch (Exception ex)
+		{
+		
+		}
+		finally
+		{
+			try
+			{
+				out.close();
+			}
+			catch (Exception ex)
+			{
+				
+			}
+		}		
+
+	}
+	private BufferedWriter createFileStream (String fileName)
+	{
+		try
+		{
+			FileWriter writer = new FileWriter (fileName);
+			return new BufferedWriter(writer);
+		}
+		catch (Exception ex)
+		{
+			
+		}
+		return null;
+	}
+	
+	public void generateFruitDriver ()
+	{
+		DirectoryTree myTree = new DirectoryTree();
+		myTree.build();
+		fwt = myTree.getTestFiles();
+		File driverFile = new File(System.getProperty("user.dir") + File.pathSeparator + "project_test_driver.f90");
+		File fruitBasketFile = new File (System.getProperty("user.dir") + File.pathSeparator + "fruit_basket_gen.f90");
+		generateDriver(createFileStream(driverFile.getPath()));
+		writeFruitBasket(createFileStream(fruitBasketFile.getPath()));
+	}
+	
+	public void generateFruitDriver ( IProject project )
+	{
+		DirectoryTree myTree = new DirectoryTree();
+		myTree.build(project.getLocation().toFile());
+		fwt = myTree.getTestFiles();
+		IFile driverFile = project.getFile( "fruit_test_driver.f90" );
+		IFile fruitBasketFile = project.getFile("fruit_basket_gen.f90");
+		generateDriver(createFileStream(driverFile.getLocation().toString()));
+		writeFruitBasket(createFileStream(fruitBasketFile.getLocation().toString()));
+	}
+}

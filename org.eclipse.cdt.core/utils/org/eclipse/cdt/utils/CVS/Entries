@@ -1,0 +1,32 @@
+/AR.java/1.6/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/Addr2line.java/1.16/Fri Aug  4 16:12:59 2006/-ko/TCDT_5_0_0
+/Addr32.java/1.8/Tue Apr 22 15:25:36 2008//TCDT_5_0_0
+/Addr32Factory.java/1.4/Tue Apr 22 15:25:36 2008//TCDT_5_0_0
+/Addr64.java/1.8/Tue Apr 22 15:25:36 2008//TCDT_5_0_0
+/Addr64Factory.java/1.4/Tue Apr 22 15:25:36 2008//TCDT_5_0_0
+/BinaryFile.java/1.7/Tue Apr 29 17:24:45 2008//TCDT_5_0_0
+/BinaryObjectAdapter.java/1.12/Mon May  5 13:16:59 2008//TCDT_5_0_0
+/CPPFilt.java/1.11/Fri Jun 23 17:52:43 2006/-ko/TCDT_5_0_0
+/CygPath.java/1.11/Wed May 28 12:02:50 2008//TCDT_5_0_0
+/DefaultCygwinToolFactory.java/1.4/Fri Jun 23 17:52:43 2006//TCDT_5_0_0
+/DefaultGnuToolFactory.java/1.5/Fri Jun 23 17:52:43 2006//TCDT_5_0_0
+/ERandomAccessFile.java/1.5/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/ICygwinToolsFactroy.java/1.4/Fri Jun 23 17:52:43 2006//TCDT_5_0_0
+/IGnuToolFactory.java/1.4/Thu Jun 23 16:01:08 2005//TCDT_5_0_0
+/NM.java/1.4/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/Objdump.java/1.7/Fri Jun 23 17:52:43 2006//TCDT_5_0_0
+/PathUtil.java/1.5/Thu Jun 14 18:04:00 2007//TCDT_5_0_0
+/Platform.java/1.8/Wed Jun 11 15:49:57 2008//TCDT_5_0_0
+/Symbol.java/1.10/Fri Apr 25 14:24:53 2008//TCDT_5_0_0
+/WindowsRegistry.java/1.8/Tue Apr 29 17:24:45 2008//TCDT_5_0_0
+D/cdtvariables////
+D/coff////
+D/debug////
+D/elf////
+D/envvar////
+D/macho////
+D/pty////
+D/som////
+D/spawner////
+D/stabs////
+D/xcoff////

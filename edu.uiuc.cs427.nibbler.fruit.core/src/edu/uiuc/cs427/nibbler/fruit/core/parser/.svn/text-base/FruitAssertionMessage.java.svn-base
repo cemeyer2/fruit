@@ -1,0 +1,104 @@
+package edu.uiuc.cs427.nibbler.fruit.core.parser;
+
+public class FruitAssertionMessage {
+
+	private String testName;
+	private String expectedValue;
+	private String actualValue;
+	private long startTime;
+	private long endTime;
+	private boolean isFailure;
+	
+	public FruitAssertionMessage()
+	{
+		testName = "";
+		expectedValue = "";
+		actualValue = "";
+		startTime = 0;
+		endTime = 0;
+		isFailure = false;
+	}
+	
+	public FruitAssertionMessage(long start, long end, String name, String expected, String actual)
+	{
+		startTime = start;
+		endTime = end;
+		testName = name;
+		expectedValue = expected;
+		actualValue = actual;
+		isFailure = true;
+	}
+	
+	public FruitAssertionMessage(long start, long end, String name)
+	{
+		startTime = start;
+		endTime = end;
+		expectedValue = "";
+		actualValue = "";
+		testName = name;
+		isFailure = false;
+	}
+
+	public void setTestName(String testName) {
+		this.testName = testName;
+	}
+
+	public String getTestName() {
+		return testName;
+	}
+
+	public void setExpectedValue(String expectedValue) {
+		this.expectedValue = expectedValue;
+	}
+
+	public String getExpectedValue() {
+		return expectedValue;
+	}
+
+	public void setActualValue(String actualValue) {
+		this.actualValue = actualValue;
+	}
+
+	public String getActualValue() {
+		return actualValue;
+	}
+
+	public float getElapsedTimeInSeconds() {
+		return ((endTime - startTime)/1000F);
+	}
+
+	public void setFailure(boolean trueOrFalse) {
+		this.isFailure = trueOrFalse;
+	}
+
+	public boolean isFailure() {
+		return isFailure;
+	}
+
+	public void setStartTime(long startTime) {
+		this.startTime = startTime;
+	}
+
+	public long getStartTime() {
+		return startTime;
+	}
+
+	public void setEndTime(long endTime) {
+		this.endTime = endTime;
+	}
+
+	public long getEndTime() {
+		return endTime;
+	}
+	
+	public String toString()
+	{
+		return getTestName();
+	}
+	
+	public String getMessage()
+	{
+		return getTestName() + " failed, expected value: " + getExpectedValue() + " actual value: " + getActualValue();
+	}
+	
+}

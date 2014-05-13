@@ -1,0 +1,468 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>CS427 Group Nibbler - Unit Testing With FRUIT</title><meta content="DocBook XSL Stylesheets Vsnapshot_6795" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" lang="en-us"><div class="titlepage"><div><div><h1 class="title"><a name="dbApiDocumentation"></a>CS427 Group Nibbler - Unit Testing With FRUIT</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Charlie</span> <span class="surname">Meyer</span></h3><code class="email">&lt;<a class="email" href="mailto:cemeyer2@uiuc.edu">cemeyer2@uiuc.edu</a>&gt;</code></div></div><div><div class="author"><h3 class="author"><span class="firstname">Anthony</span> <span class="surname">Gelsomini</span></h3><code class="email">&lt;<a class="email" href="mailto:gelsomi1@uiuc.edu">gelsomi1@uiuc.edu</a>&gt;</code></div></div><div><div class="author"><h3 class="author"><span class="firstname">Dave</span> <span class="surname">Buhl</span></h3><code class="email">&lt;<a class="email" href="mailto:buhl1@illinois.edu">buhl1@illinois.edu</a>&gt;</code></div></div><div><div class="author"><h3 class="author"><span class="firstname">Pat</span> <span class="surname">Guelah</span></h3><code class="email">&lt;<a class="email" href="mailto:patguelah@yahoo.com">patguelah@yahoo.com</a>&gt;</code></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#chapter1">1. Overview</a></span></dt><dd><dl><dt><span class="section"><a href="#Definitions-ch1">Definitions</a></span></dt><dt><span class="section"><a href="#References-ch1">References</a></span></dt></dl></dd><dt><span class="chapter"><a href="#chapter2">2. Architecture and Design</a></span></dt><dd><dl><dt><span class="section"><a href="#Overview-ch2">Overview</a></span></dt><dt><span class="section"><a href="#Components-ch2">Components</a></span></dt><dd><dl><dt><span class="section"><a href="#UserInterface-ch2">User Interface</a></span></dt><dt><span class="section"><a href="#TestCaseGeneration-ch2">Test Case Generation</a></span></dt><dt><span class="section"><a href="#BuildAndLaunchSystem-ch2">Build and Launch System</a></span></dt><dt><span class="section"><a href="#DriverGenerationAndOutputParsing-ch2">Driver Generation and Output Parsing</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#chapter3">3. Project Postmortem</a></span></dt><dd><dl><dt><span class="section"><a href="#FuturePlans-ch3">Future Plans</a></span></dt><dt><span class="section"><a href="#TeamMemberReflections-ch3">Team Member Reflections</a></span></dt><dd><dl><dt><span class="section"><a href="#DaveBuhl-ch3">Dave Buhl</a></span></dt><dt><span class="section"><a href="#AnthonyGelsomini-ch3">Anthony Gelsomini</a></span></dt><dt><span class="section"><a href="#PatGuelah-ch3">Pat Guelah</a></span></dt><dt><span class="section"><a href="#CharlieMeyer-ch3">Charlie Meyer</a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="#appendix1">A. Software Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#Requirements-ap1">Requirements</a></span></dt><dt><span class="section"><a href="#Installation-ap1">Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#EclipseInstallation-ap1">Eclipse 3.4 Distribution for Plug-in Developers</a></span></dt><dt><span class="section"><a href="#CDTAndPhotranSources-ap1">CDT and Photran Sources</a></span></dt><dt><span class="section"><a href="#NibblerSources-ap1">Nibbler Project Sources</a></span></dt><dt><span class="section"><a href="#Cygwin-ap1">Cygwin</a></span></dt><dt><span class="section"><a href="#GFortran-ap1">GFortran</a></span></dt><dt><span class="section"><a href="#SettingUpEnvironmentVariablesWindows-ap1">Setting up Environment Variables (Windows)</a></span></dt><dt><span class="section"><a href="#SettingUpEnvironmentVariablesCygwin-ap1">Setting Up Environment Variables (Cygwin)</a></span></dt><dt><span class="section"><a href="#RubyGems-ap1">Ruby Gems</a></span></dt><dt><span class="section"><a href="#FRUIT-ap1">FRUIT</a></span></dt><dt><span class="section"><a href="#Nibbler-ap1">Nibbler Code</a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="#appendix2">B. Software User Guide</a></span></dt><dd><dl><dt><span class="section"><a href="#FortranProjectCreation-ap2">Fortran Project Creation</a></span></dt><dt><span class="section"><a href="#CreatingATestCase-ap2">Creating a Test Case</a></span></dt><dt><span class="section"><a href="#RunningFRUITTests-ap2">Running FRUIT Tests</a></span></dt></dl></dd><dt><span class="appendix"><a href="#appendix3">C. Test Suite Usage</a></span></dt><dd><dl><dt><span class="section"><a href="#manual-ap3">Manual Test Procedures</a></span></dt><dd><dl><dt><span class="section"><a href="#ManualTest1-ap3">Verifying Empty  View</a></span></dt><dt><span class="section"><a href="#N103A2">Running The Sample FRUIT Tests</a></span></dt></dl></dd><dt><span class="section"><a href="#automated-ap3">Automated Test Procedures</a></span></dt><dd><dl><dt><span class="section"><a href="#AutomatedTest1-ap3">FruitLaunchManagerTest</a></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-figures"><p><b>List of Figures</b></p><dl><dt>2.1. <a href="#N10066">Nibbler UML Diagram</a></dt><dt>2.2. <a href="#N10082">PUnit View</a></dt><dt>2.3. <a href="#N10096">PUnit View Class Diagram</a></dt><dt>A.1. <a href="#N10166">Cygwin Install Screen</a></dt><dt>A.2. <a href="#N10293">New Repository Location</a></dt><dt>A.3. <a href="#N102B2">New Repository Location Window</a></dt><dt>A.4. <a href="#N102C5">Checkout from SVN</a></dt><dt>A.5. <a href="#N102D3">Checkout Projects</a></dt><dt>B.1. <a href="#N102FB">The Include Paths Required for FRUIT</a></dt><dt>B.2. <a href="#N1031B">Configuring FRUIT libraries</a></dt><dt>B.3. <a href="#N1032C">Create a FRUIT test case</a></dt><dt>B.4. <a href="#N10362">The PUnit View Displaying Results</a></dt><dt>C.1. <a href="#N1038B">Select the PUnit View</a></dt><dt>C.2. <a href="#N10398">The Empty Punit View</a></dt><dt>C.3. <a href="#N103E8">PUnit View After Manual Test</a></dt></dl></div><div class="chapter" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="chapter1"></a>Chapter&nbsp;1.&nbsp;Overview</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#Definitions-ch1">Definitions</a></span></dt><dt><span class="section"><a href="#References-ch1">References</a></span></dt></dl></div><p>
+		FRUIT is an unit testing framework designed for the Fortran Programming Language.  
+		FRUIT is based up on the xUnit style of unit testing as typified by JUnit.  The 
+		purpose of the Unit Testing with FRUIT CS427 Final Project is to integrate to the 
+		FRUIT testing framework with the Photran Fortran IDE that is implemented as part 
+		of Eclipse.
+	</p><p>
+		The prototype example implementation developed over the course of this project uses 
+		the Eclipse JUnit implementation as a reference implementation of a unit testing 
+		framework in Eclipse.  Wherever possible the FRUIT UI and usage will be modeled on 
+		the JUnit implementation.
+	</p><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Definitions-ch1"></a>Definitions</h2></div></div></div><div class="orderedlist"><ol type="1"><li><span class="emphasis"><em>FRUIT</em></span> -- a unit testing framework for Fortran programs, modeled after the xUnit family.
+			</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="References-ch1"></a>References</h2></div></div></div><div class="orderedlist"><ol type="1"><li><a class="ulink" href="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project " target="_top">
+                        <em class="citetitle">
+              Photran Developer Guide
+                        </em>
+                    </a></li></ol></div></div></div><div class="chapter" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="chapter2"></a>Chapter&nbsp;2.&nbsp;Architecture and Design</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#Overview-ch2">Overview</a></span></dt><dt><span class="section"><a href="#Components-ch2">Components</a></span></dt><dd><dl><dt><span class="section"><a href="#UserInterface-ch2">User Interface</a></span></dt><dt><span class="section"><a href="#TestCaseGeneration-ch2">Test Case Generation</a></span></dt><dt><span class="section"><a href="#BuildAndLaunchSystem-ch2">Build and Launch System</a></span></dt><dt><span class="section"><a href="#DriverGenerationAndOutputParsing-ch2">Driver Generation and Output Parsing</a></span></dt></dl></dd></dl></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Overview-ch2"></a>Overview</h2></div></div></div><p>
+			We broke up our project into several distinct units of functionality that were coded independently then integrated
+			together near the end of the development process. The integration of the FRUIT library and driver generation tools 
+			into the Photran framework required several complex changes to a build system that expects to generate a single binary 
+			executable from a series of Fortran source files.  In addition the FRUIT distribution contains some Ruby scripts that 
+			generate some driver files necessary to exercise the FRUIT tests.
+		</p><p>
+			<div class="figure"><a name="N10066"></a><p class="title"><b>Figure&nbsp;2.1.&nbsp;Nibbler UML Diagram</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="images/ch2-uml.jpeg" align="middle" width="630" alt="Nibbler UML Diagram"></div></div></div><br class="figure-break">
+		</p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Components-ch2"></a>Components</h2></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="UserInterface-ch2"></a>User Interface</h3></div></div></div><p>
+				The user interface was designed and modeled after the JUnit view that is shipped with the standard Eclipse
+				distribution. At first, it was decided to take the JUnit view code and simply modify it to hook into the
+				other components that had been created for FRUIT testing. 
+			</p><p>
+				After some initial discovery, it was determined	that it would make more sense to create a completely new 
+				view plugin from scratch and port bits of JUnit	code to the new view to emulate the look and feel of JUnit. 
+				This way, the resulting PUnit view is custom built to read directly from the FRUIT parser component and display 
+				results accordingly. The JUnit labels, images, and status bar were all able to be ported easily, but to display 
+				the FRUIT parser's output more efficiently, a table was chosen in place of the existing JUnit GUI components. 
+				This table displays the	output in a friendly, condensed form.
+			</p><div class="section" lang="en-us"><div class="titlepage"></div><p>
+			 The PUnit view is an extension to org.eclipse.views. It provides an informative GUI displaying test summaries. 
+			 It is designed and modeled after the JUnit view. New views are created in Eclipse by defining a category and the 
+			 view in the plug-in manifest file. Since the PUnit view is used for Fortran testing, it is added to the Fortran category. 
+			 The view needs a name, an id, and a class.  
+			 The view is displayed by running the runtime workbench and going to Window-&gt;Show
+View-&gt;Other-&gt;Fortran-&gt;PUnit
+
+			 </p><div class="figure"><a name="N10082"></a><p class="title"><b>Figure&nbsp;2.2.&nbsp;PUnit View</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ch2-punitview.jpeg" alt="PUnit View"></div></div></div><br class="figure-break"><p>
+			 In Eclipse, views must implement the IViewPart interface. The abstract class ViewPart, which is a subclass of WorkbenchPart 
+			 implements that interface. The PUnit view class, PunitView implements the IViewPart interface by subclassing the ViewPart 
+			 abstract class. The view is built using the Composite pattern. 
+            The view is composed of three major elements defined in the required CreatePartControl(Composite) method, which creates the 
+            controls comprising the view: 
+			 </p><div class="itemizedlist"><ul type="disc"><li>
+			     The counter panel is a panel that displays the counters for the number of Runs, Errors, and failure. The CounterPanel 
+			     Class is a Subclass of Composite which is contained in the Composite Parent. 
+			     </li><li>
+                 The Progress bar is a JUnit like progress bar, which turns green for test success and red for failures. The PUnitProgressBar 
+                 Class is a subclass of Canvas and has a constructor that takes the parent Composite of the view. 
+                 </li><li>
+                 A Table viewer that displays the result of the test. Each row represents a test while each column represents an attribute 
+                 of the test: name, Elapsed time, Test passed, Expected value, Actual value. Each row of the table is colored in red or green 
+                 depending on if the test passed or failed. The Tableviewer must be configured with a content provider; witch implements the 
+                 IStructureContenProvider interface and Label provider, witch must implement the IBaseLabelProvider. 
+                 </li></ul></div><p>
+			 The result of Fruit tests are represented in FruitAssertionMessages objects. The contain provider class 
+			 FruitAssertionMessageContentProvider implements the required getElements method, which returns a list of FruitAssertionMessages 
+			 to display. 
+
+The Label provider class FruitAssertionMessageLabelProvider is a subclass of LabelProvider and implements the ITableLabelProvider. 
+This interface extends IBaseLabelProvider with method to provide text and image for each column of a given test. This class creates the 
+column of the table with the 5 tests attributes:  Test name, Elapsed Time, Test Passed, Expected Value, Actual Value.
+
+The output generated by the fruit parser is used to populate the PUnitview.  
+
+Below is a Class diagram of important classes: 
+             </p><div class="figure"><a name="N10096"></a><p class="title"><b>Figure&nbsp;2.3.&nbsp;PUnit View Class Diagram</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ch2-punit_class.jpeg" alt="PUnit View Class Diagram"></div></div></div><br class="figure-break"></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="TestCaseGeneration-ch2"></a>Test Case Generation</h3></div></div></div><p>
+                When a user wishes to create a new FRUIT test case two options exist that are supported by the Photran FRUIT system.
+                First the user can create the FRUIT test case completely manually by just creating a new Fortran source file in
+                Photran and following the appropriate rules for creating a FRUIT Test Case.  The Photran FRUIT tools can handle
+                test cases that are created manually in this fashion, and will be automatically detected by the build system when a 
+                Build and Launch occurs.
+            </p><p>
+                In addition to the manual procedure Photran now provides a wizard based test case generation procedures.  This
+                provides a means to create a minimal skeleton test case in a similar means to that provide by the JUnit framework 
+                within Eclipse.  Under the File-&gt;New hierachy the user will be able to select "New Fruit Test Case".  This
+                wizard will prompt for the Fortran file that the test case will test, along with the name of the Fortran module
+                within that file.  Upon completion of the wizard, a new skeleton test case file will be created that provides
+                some of the framework required to build a FRUIT test case.  
+            </p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="BuildAndLaunchSystem-ch2"></a>Build and Launch System</h3></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h4 class="title"><a name="Build-ch2"></a>Building</h4></div></div></div><p>
+					When the user performs a normal system build Photran will perform the build as normal, the FRUIT code will 
+					not affect normal builds except for the fact that the fruit_test_driver.f90 is excluded from the build.
+				</p><p>
+					When a user runs the &ldquo;Run Fruit Test&rdquo; context menu entry on the project, the FRUIT build system will take over.  
+					The FruitLaunchManager module will take over at this point and get Photran into a state to display the results 
+					of the FRUIT tests.
+				</p><p>
+					First the system will verify that the FRUIT configuration is up to date with all the latest test case files 
+					that are in the system.  The system will also update the fruit_test_driver.f90 and fruit_basket_gen.f90 files 
+					which comprise the FRUIT test driver application.
+				</p><p>
+					Photran will then instruct the build system to build the FRUIT configuration.  The configuration is explicitly 
+					built since there appear to be some issues with trusting the Eclipse Launching system to always automatically 
+					rebuild it when necessary.  
+				</p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h4 class="title"><a name="Execution-ch2"></a>Execution</h4></div></div></div><p>
+					Once the FRUIT configuration is successfully built, Photran will verify that a correct Launch Configuration 
+					exists to execute the FRUIT test driver correctly.  This Launch Configuration consists of a link to the actual 
+					application along with a variety of configuration settings.  The core changes from a standard Launch Configuration 
+					that are used for FRUIT are that the application will not be connected to a console, and the output will be 
+					redirected to a file &ldquo;fruit_output.log&rdquo;.  This file will contain the output of the FRUIT run that will be parsed 
+					and loaded into the PUnit view.
+				</p><p>
+					Since aspects of the execution actually run in the background after the context menu handler exits, a way is 
+					needed to communicate to the view that a new fruit_output.log file is available to be parsed and displayed.  
+					PUnitView will listen for DebugEvents to determine when the FRUIT test application has finished execution and 
+					sends the TERMINATE event.
+				</p></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="DriverGenerationAndOutputParsing-ch2"></a>Driver Generation and Output Parsing</h3></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h4 class="title"><a name="DriverGeneration-ch2"></a>Driver Generation</h4></div></div></div><p>
+					Before the FRUIT tests can be built and run they first needs some setup code to be built that is specific to 
+					each test suite.  Since Fortran doesn&rsquo;t support Reflection as is the case with Java, FRUIT cannot directly find 
+					these tests cases and execute them without any assistance as is the case with JUnit.
+				</p><p>
+					In the FRUIT distribution there exists a collection of Ruby scripts that will parse the Fortran files in a given 
+					project and generate the appropriate driver files from the test case source files.  For this project this code 
+					needed to be integrated into Photran so that this process could be automatically run whenever the FRUIT test cases 
+					need to be rebuilt and run.
+				</p><p>
+					In order to accomplish this the Ruby scripts were rewritten in Java and integrated into Photran.  When the driver 
+					generator is run it will scan through all the all the files in the directory provided to determine which ones 
+					contain test cases and will then add these tests to the overall driver.
+				</p></div></div></div></div><div class="chapter" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="chapter3"></a>Chapter&nbsp;3.&nbsp;Project Postmortem</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#FuturePlans-ch3">Future Plans</a></span></dt><dt><span class="section"><a href="#TeamMemberReflections-ch3">Team Member Reflections</a></span></dt><dd><dl><dt><span class="section"><a href="#DaveBuhl-ch3">Dave Buhl</a></span></dt><dt><span class="section"><a href="#AnthonyGelsomini-ch3">Anthony Gelsomini</a></span></dt><dt><span class="section"><a href="#PatGuelah-ch3">Pat Guelah</a></span></dt><dt><span class="section"><a href="#CharlieMeyer-ch3">Charlie Meyer</a></span></dt></dl></dd></dl></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FuturePlans-ch3"></a>Future Plans</h2></div></div></div><p>
+		  Currently CS427 Team Nibbler has no future plans for this project.  With additional testing and code cleanup 
+		  there is a possibility that it could be used within Photran.  For this project to actually be used with Photran
+		  several design decisions would most likely need to be analyzed to see if the choices that were made by Team
+		  Nibbler will actually fit within the model that is provided within Photran.  The primary issues that would need to be
+		  analyzed are
+		  <div class="itemizedlist"><ul type="disc"><li>
+		          Use of Build Configurations to support building FRUIT application
+		      </li><li>
+		          Better integration of FRUIT distribution into Photran
+		      </li><li>
+		          Decision to parse fruit output.  Integration with the FRUIT project would potentially
+		          allow a more stable output format.
+		      </li></ul></div>
+		</p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TeamMemberReflections-ch3"></a>Team Member Reflections</h2></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="DaveBuhl-ch3"></a>Dave Buhl</h3></div></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="AnthonyGelsomini-ch3"></a>Anthony Gelsomini</h3></div></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="PatGuelah-ch3"></a>Pat Guelah</h3></div></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="CharlieMeyer-ch3"></a>Charlie Meyer</h3></div></div></div></div></div></div><div class="appendix" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="appendix1"></a>Appendix&nbsp;A.&nbsp;Software Installation</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#Requirements-ap1">Requirements</a></span></dt><dt><span class="section"><a href="#Installation-ap1">Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#EclipseInstallation-ap1">Eclipse 3.4 Distribution for Plug-in Developers</a></span></dt><dt><span class="section"><a href="#CDTAndPhotranSources-ap1">CDT and Photran Sources</a></span></dt><dt><span class="section"><a href="#NibblerSources-ap1">Nibbler Project Sources</a></span></dt><dt><span class="section"><a href="#Cygwin-ap1">Cygwin</a></span></dt><dt><span class="section"><a href="#GFortran-ap1">GFortran</a></span></dt><dt><span class="section"><a href="#SettingUpEnvironmentVariablesWindows-ap1">Setting up Environment Variables (Windows)</a></span></dt><dt><span class="section"><a href="#SettingUpEnvironmentVariablesCygwin-ap1">Setting Up Environment Variables (Cygwin)</a></span></dt><dt><span class="section"><a href="#RubyGems-ap1">Ruby Gems</a></span></dt><dt><span class="section"><a href="#FRUIT-ap1">FRUIT</a></span></dt><dt><span class="section"><a href="#Nibbler-ap1">Nibbler Code</a></span></dt></dl></dd></dl></div><p>
+		The Nibbler FRUIT plugins for Eclipse are designed and tested for use under Windows XP 
+		with Cygwin providing the required Unix compatibility layer.  The installation instructions 
+		provided are targeted at this environment.
+	</p><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Requirements-ap1"></a>Requirements</h2></div></div></div><div class="itemizedlist"><ul type="disc"><li>
+				Eclipse 3.4 Distribution for Plug-in Developers
+				<div class="itemizedlist"><ul type="circle"><li>CDT Version 5.0.0 Sources</li><li>Photran HEAD Sources</li><li>Nibbler Sources</li></ul></div></li><li>Cygwin</li><li>GFortran for Cygwin 2008-11-18</li><li>FRUIT 2.6</li><li>Ruby Gems</li></ul></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Installation-ap1"></a>Installation</h2></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="EclipseInstallation-ap1"></a>Eclipse 3.4 Distribution for Plug-in Developers</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Download Eclipse 3.4 For Plug-in Developers from 
+					<a class="ulink" href="http://www.eclipse.org/downloads/packages/eclipse-rcpplug-developers/ganymeder" target="_top">
+						<em class="citetitle">
+							http://www.eclipse.org/downloads/packages/eclipse-rcpplug-developers/ganymeder
+						</em>
+					</a></li><li>
+					Eclipse doesn&rsquo;t provide an installer.  Once uncompressed the files can be stored anywhere on 
+					the system.  To run Eclipse, the user needs to launch the Eclipse.exe binary inside the 
+					uncompressed Eclipse directory.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="CDTAndPhotranSources-ap1"></a>CDT and Photran Sources</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					To install the CDT and Photran Sources follow the detailed instructions provided in Appendix 
+					A of the Photran Developers Guide available at:
+					<a class="ulink" href="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project" target="_top">
+						<em class="citetitle">
+							http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project
+						</em>
+					</a></li><li>
+					One deviation from the directions provided with Photran is that instead of using the 
+					CDT_5_0 branch, the user should use the CDT_5_0_0 tag as this tag point is the one that 
+					is compatible with the version of Photran in the HEAD branch.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="NibblerSources-ap1"></a>Nibbler Project Sources</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+		          Checkout the sources from the CS427 Subversion repository at the FinalSubmission tag:
+		          <a class="ulink" href="https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/tags/FinalSubmission" target="_top">
+		                <em class="citetitle">
+                            https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/tags/FinalSubmission
+                        </em>
+		          </a>     
+		            The required packages are:
+                  <div class="itemizedlist"><ul type="disc"><li>
+                        edu.uiuc.cs427.nibbler.fruit.core
+                    </li><li>
+                        edu.uiuc.cs427.nibbler.fruit.tests
+                    </li><li>
+                        edu.uiuc.cs427.nibbler.fruit.wizards
+                    </li><li>
+                        edu.uiuc.cs427.nibbler.punit
+                    </li></ul></div></li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="Cygwin-ap1"></a>Cygwin</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					To install Cygwin, download the latest version of Cygwin from 
+					<a class="ulink" href="http://www.cygwin.com/setup.exe" target="_top">
+						<em class="citetitle">
+							http://www.cygwin.com/setup.exe
+						</em>
+					</a>
+					. Once downloaded, run the executable <code class="filename">setup.exe</code>.
+				</li><li>
+					Select all of the "Base" utilites by clicking on the word "Default" next to Base until
+					it shows "Install".
+					<div class="figure"><a name="N10166"></a><p class="title"><b>Figure&nbsp;A.1.&nbsp;Cygwin Install Screen</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap1-installCygwin.jpeg" alt="Cygwin Install Screen"></div></div></div><br class="figure-break"></li><li>
+					Select the following "Developer" utilities: <span class="emphasis"><em>autoconf</em></span>, 
+					<span class="emphasis"><em>automake</em></span>, <span class="emphasis"><em>binutils</em></span>, 
+					<span class="emphasis"><em>gcc</em></span>, <span class="emphasis"><em>gdb</em></span>,
+					<span class="emphasis"><em>make</em></span>, and <span class="emphasis"><em>libtool</em></span> by exapanding the "Devel"
+					category and selecting the checkboxes next to each of the mentioned packages.
+				</li><li>
+					Change Category to "Full", by clicking on the button that displays "View" to the
+					left of the category until the button displays "Full".
+				</li><li>
+					Select <span class="emphasis"><em>gmp</em></span>, <span class="emphasis"><em>mpfr</em></span>, and <span class="emphasis"><em>ruby</em></span> 
+					by selecting the checkboxes next to each of the mentioned packages.
+				</li><li>
+					The installation can now be completed by selecting "Next" repeatedly until the
+					installation completes.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="GFortran-ap1"></a>GFortran</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Download the gfortran archive from 
+					<a class="ulink" href="http://gcc.gnu.org/wiki/GFortranBinaries" target="_top">
+						<em class="citetitle">
+							GFortran
+						</em>
+					</a> by clicking the "here" link in the Windows Cygwin section and then save the
+					file in your <code class="filename">{cygwin_install_directory}\home\{user_name}</code> directory.
+				</li><li>
+					Open a Cygwin shell and make sure that you are in your home directory by typing the command: 
+					<code class="code">cd ~</code> at the prompt.
+				</li><li>
+					Ensure the gfortran archive is in your directory by using the command <code class="code">ls</code> at the
+					prompt. You should see a list of the files in the directory printed to the console. One of 
+					them should be named similarly to <code class="filename">gfortran-4.4-Cygwin-i686.tar.bz2</code></li><li>
+					Extract and install gfortran by using the command <code class="code">tar -xjvf gfortran-4.4-Cygwin-i686.tar.bz2 -C /</code> 
+					Do not forget the trailing slash. Also, this command is case sensitive and you will need to replace the filename
+					given in the sample command with the name of the file that you actually downloaded.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="SettingUpEnvironmentVariablesWindows-ap1"></a>Setting up Environment Variables (Windows)</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Cygwin does not put itsself on the Windows path. You need to add it to the PATH environment
+					variable. Go to Control Panel &gt; System. Click on the Advanced tab, then click on the
+					Environment Variables button. Go to the System Variables section. Look for PATH, select it,
+					and click edit. Prepend <code class="code">C:\{cygwin_install_dir}\usr\local\gfortran\bin;C:\{cygwin_install_dir}\cygwin\bin;</code> 
+					to the path. Remember that paths are separated by <code class="code">;</code>, so do not leave them out. Double
+					check that there are not any trailing or dangling symbols, etc. Also, replace <code class="code">{cygwin_install_dir}</code> with
+					the location you installed Cygwin.
+				</li><li>
+					You will need to restart Windows before Eclipse will recognize the new PATH.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="SettingUpEnvironmentVariablesCygwin-ap1"></a>Setting Up Environment Variables (Cygwin)</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Open a Cygwin bash shell.
+				</li><li>
+					Edit the file <code class="filename">.bash_profile</code> in your home direcotry with your
+					favorite text editor.
+				</li><li>
+					Add <code class="code">PATH=/usr/local/gfortran/bin:${PATH}</code> to the end of the file. Note the
+					direction of the slashes and remember that this is case sensitive. Save and close the file.
+				</li><li>
+					If you used a Windows editor to change <code class="filename">.bash_profile</code> such as Notepad
+					or Wordpad, you will need to eliminate the carriage returns that Windows editors put
+					into files. Use the command <code class="code">dos2unix .bash_profile</code></li><li>
+					Close your shell and then open a new one to load the new PATH.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="RubyGems-ap1"></a>Ruby Gems</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Download the latest ruby gems archive from 
+					<a class="ulink" href="http://rubyforge.org/frs/?group_id=126" target="_top">
+						<em class="citetitle">
+							Gems
+						</em> 
+					</a> and save it to your home directory in Cygwin.
+				</li><li>
+					Expand the archive by issuing the command <code class="code">tar -xvf rubygems-1.3.1.tgz</code> using
+					the filename that you downloaded in place of <code class="code">rubygems-1.3.1.tgz</code></li><li>
+					Change to the directory that contains the file <code class="filename">setup.rb</code> which should
+					be in the root directory named for the archive, in this case <code class="filename">rubygems-1.3.1</code></li><li>
+					Install ruby gems by issuing the command <code class="code">ruby setup.rb install</code></li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="FRUIT-ap1"></a>FRUIT</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+					Download the latest version of FRUIT from 
+					<a class="ulink" href="http://sourceforge.net/projects/fortranxunit" target="_top">
+						<em class="citetitle">
+							http://sourceforge.net/projects/fortranxunit
+						</em>
+					</a> and save it in your Cygwin home directory.
+				</li><li>
+					Unzip the archive by issuing the command <code class="code">unzip fruit_2.6.zip</code> replacing
+					<code class="code">fruit_2.6.zip</code> with the name of the file that you downloaded.
+				</li><li>
+					Change into the directory created, in this case <code class="code">cd fruit_2.6</code></li><li>
+					Make the following edits to the <code class="filename">rake_base.rb</code> in the <code class="filename">fruit_2.6</code> directory:
+					<div class="orderedlist"><ol type="a"><li>
+							Change <code class="code">$compiler='ifort'</code> to <code class="code">$compiler='gfortran'</code></li><li>
+							change <code class="code">sh "#{$compiler} -g -debug inline_debug_info -c -o #{t.name} #{t.source}
+							-module #{$build_dir} #{FruitProcessor.new.inc_flag($inc_dirs)}"</code> to read
+							<code class="code">sh "#{$compiler} -g -c -o #{t.name} #{t.source} -J #{$build_dir} 
+							#{FruitProcessor.new.inc_flag($inc_dirs)}"</code> Note how the <code class="code">-debug</code>
+							option was removed and the <code class="code">-module</code> option is replaced by <code class="code">-J</code></li></ol></div></li><li>
+					Next, you have to make some small changes to the <code class="filename">fruit.f90</code> file in the
+					<code class="filename">src</code> directory in order for fruit to compile with gfortran. There are
+					two function delarations in the file that you must add <code class="code">()</code> to. The first is 
+					<code class="code">function get_last_message</code> should be changed to <code class="code">function get_last_message()</code>
+					and <code class="code">function is_last_passed</code> should be changed to <code class="code">function is_last_passed()</code></li><li>
+					Install the Rake Gem using the command <code class="code">sudo gem install rake</code></li><li>
+					Change to the <code class="filename">fruit_processor_gem</code> directory and then issue the command 
+					<code class="code">sudo rake install</code> to install the fruit processor gem.
+				</li><li>
+					In the fruit directory, run <code class="code">rake clobber</code> and then <code class="code">rake</code> in build FRUIT.
+				</li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="Nibbler-ap1"></a>Nibbler Code</h3></div></div></div><p><a name="Subverse-ap1"></a>
+				The following instructions on how to download the Nibbler code into your workspace assume you have the Subversive
+				Eclipse plugin installed. If you do not have it installed, please see the instructions at 
+				<a class="ulink" href="http://www.eclipse.org/subversive/" target="_top">
+					<em class="citetitle">
+						the Subversive web page
+					</em>
+				</a>. We also assume that your UIUC netid has access to the Nibbler SVN repository. Please contact TSG if 
+				you need to be given access to the repository.
+			</p><div class="orderedlist"><ol type="1"><li>
+					Make sure you are in the same workspace where you checked out the CDT and Photran source code.
+				</li><li>
+					Select File &gt; New &gt; Other... &gt; Expand the SVN Folder &gt; New Repository Location
+					<div class="figure"><a name="N10293"></a><p class="title"><b>Figure&nbsp;A.2.&nbsp;New Repository Location</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap1-installNibbler1.jpeg" alt="New Repository Location"></div></div></div><br class="figure-break"></li><li>
+					Fill in the the information as follows:
+					<div class="itemizedlist"><ul type="disc"><li><span class="emphasis"><em>URL</em></span> - <code class="filename">https://csil-projects.cs.uiuc.edu/svn/fa08/Nibbler</code></li><li><span class="emphasis"><em>Label</em></span> - Select "Use the repository URL as the label</li><li><span class="emphasis"><em>User</em></span> - Your UIUC netid</li><li><span class="emphasis"><em>Password</em></span> - Your UIUC Active Directory Password</li></ul></div><div class="figure"><a name="N102B2"></a><p class="title"><b>Figure&nbsp;A.3.&nbsp;New Repository Location Window</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap1-installNibbler2.jpeg" alt="New Repository Location Window"></div></div></div><br class="figure-break">
+					Click Finish
+				</li><li>
+					Select File &gt; New  &gt; Expand the SVN folder &gt; Project from SVN
+				</li><li>
+					Select the newly created repository location in the next window
+				</li><li>
+					Add <code class="code">/trunk</code> to the end of the URL on the next window and select Head Revision
+					<div class="figure"><a name="N102C5"></a><p class="title"><b>Figure&nbsp;A.4.&nbsp;Checkout from SVN</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap1-installNibbler3.jpeg" alt="Checkout from SVN"></div></div></div><br class="figure-break">
+					Click Finish.
+				</li><li>
+					On the next window, select the option "Find Projects in the Children of the Selected Resource". Click Finish.
+				</li><li>
+					Subversive will then recursively scan the repository to find projects. This will take a minute or so. On the window
+					that appears next, select all of the projects then click Finish.
+					<div class="figure"><a name="N102D3"></a><p class="title"><b>Figure&nbsp;A.5.&nbsp;Checkout Projects</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap1-installNibbler4.jpeg" alt="Checkout Projects"></div></div></div><br class="figure-break"></li><li>
+					All the code will now be downloaded from the repository into your workspace.
+				</li></ol></div></div></div></div><div class="appendix" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="appendix2"></a>Appendix&nbsp;B.&nbsp;Software User Guide</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#FortranProjectCreation-ap2">Fortran Project Creation</a></span></dt><dt><span class="section"><a href="#CreatingATestCase-ap2">Creating a Test Case</a></span></dt><dt><span class="section"><a href="#RunningFRUITTests-ap2">Running FRUIT Tests</a></span></dt></dl></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FortranProjectCreation-ap2"></a>Fortran Project Creation</h2></div></div></div><p>
+			The Photran FRUIT plugin supports using normal Photran Fortran Projects.  
+			As a result the first step in using the FRUIT plugin is to create a Fortran 
+			Project in Eclipse.  After the project is created the following changes need 
+			to be made to support the building of FRUIT projects.
+		</p><div class="orderedlist"><ol type="1"><li>
+				Under Project Properties &gt; Fortran General &gt; Paths and Symbols
+				<div class="orderedlist"><ol type="a"><li>
+						Select Configuration "All Configurations"
+					</li><li>
+						Select the fortran files under languages (f,f90,f95,f03)
+					</li><li>
+						Then add a new include path. This will be a path to the fruit module files. In this case,
+						they are in the <code class="filename">{cygwin_home_directory}\fruit_2.6\build</code>.
+						<div class="figure"><a name="N102FB"></a><p class="title"><b>Figure&nbsp;B.1.&nbsp;The Include Paths Required for FRUIT</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap2-fruitIncludePath.jpeg" alt="The Include Paths Required for FRUIT"></div></div></div><br class="figure-break"></li></ol></div></li><li>
+				Under Project Properties &gt; Fortran Build &gt; Settings
+				<div class="orderedlist"><ol type="a"><li>
+						Select Configuration "All Configurations"
+					</li><li>
+						Select the libraries entry under Fortran Linker
+					</li><li>
+						In the Libraries (-l) window, create a new entry, place <code class="code">fruit</code> in the text box
+					</li><li>
+						In the Library Search Path, create a new entry and place the path to <code class="filename">libfruit.a</code>,
+						in this case it is located in <code class="filename">{cygwin_home_directory}\fruit_2.6\src</code><div class="figure"><a name="N1031B"></a><p class="title"><b>Figure&nbsp;B.2.&nbsp;Configuring FRUIT libraries</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap2-fruitLibraries.jpeg" alt="Configuring FRUIT libraries"></div></div></div><br class="figure-break"></li></ol></div></li></ol></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="CreatingATestCase-ap2"></a>Creating a Test Case</h2></div></div></div><p>
+			The Photran FRUIT plugin provides a means to create a skeleton test case file.  This is 
+			similar to the approach JUnit follows which provides a wizard to create a skeleton version 
+			of the test case.  This skeleton doesn&rsquo;t provide any actual test case code, it is primarily 
+			used to provide the repetitive code that needs to be created for each test case.
+		</p><p>
+			To create a new test case a new entry under the File-&gt;New menu is provided under the 
+			Fortran/FRUIT subcategory.
+			<div class="figure"><a name="N1032C"></a><p class="title"><b>Figure&nbsp;B.3.&nbsp;Create a FRUIT test case</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap2-testCase1.jpeg" alt="Create a FRUIT test case"></div></div></div><br class="figure-break">
+		</p><p>
+			Upon selecting &ldquo;New FRUIT Test Case&rdquo; the user will be presented with a prompt to supply both 
+			the file containing the Module Under Test and the actual module name in that file.
+			<div class="mediaobject"><img src="images/ap2-testCase2.jpeg"></div>
+		</p><p>
+			Upon clicking &ldquo;Finish&rdquo; the skeleton file <code class="filename">calculator_test.f90</code> 
+			(or another f90 file named after the module under test) will be created and populated 
+			with a basic test case outline.
+		</p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="RunningFRUITTests-ap2"></a>Running FRUIT Tests</h2></div></div></div><p>
+			Once all the test cases are written, to run the test suite the user will right click on the 
+			Project and select &ldquo;Run FRUIT Test&rdquo;.  When &ldquo;Run FRUIT Test&rdquo; executes it performs several 
+			actions before finally displaying the results.  These steps are as follows:
+			<div class="itemizedlist"><ul type="disc"><li>
+					Update <code class="filename">fruit_basket_gen.f90</code> which contains the Fortran driver to run each 
+					FRUIT Test Case specified in the test files in the project.
+				</li><li>
+					Update <code class="filename">fruit_test_driver.f90</code> which contains the main Fortran program definition.
+				</li><li>
+					Add/Update a build configuration called &ldquo;FRUIT&rdquo;.  This build configuration selects just 
+					the test case files along with the files of the modules under test to be built.
+				</li><li>
+					Build the &ldquo;FRUIT&rdquo; Build Configuration.
+				</li><li>
+					Run the executable created by the &ldquo;FRUIT&rdquo; Build Configuration to generate the test case output.
+				</li><li>
+					Populate the PUnit View to display the &ldquo;FRUIT&rdquo; results.
+				</li></ul></div>
+		</p><p>
+			When FRUIT completes, the PUnit View will be displayed showing the results of each test 
+			case along with how many tests passed and failed.
+			<div class="figure"><a name="N10362"></a><p class="title"><b>Figure&nbsp;B.4.&nbsp;The PUnit View Displaying Results</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap2-punitView.jpeg" alt="The PUnit View Displaying Results"></div></div></div><br class="figure-break">
+		</p></div></div><div class="appendix" lang="en-us"><div class="titlepage"><div><div><h2 class="title"><a name="appendix3"></a>Appendix&nbsp;C.&nbsp;Test Suite Usage</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#manual-ap3">Manual Test Procedures</a></span></dt><dd><dl><dt><span class="section"><a href="#ManualTest1-ap3">Verifying Empty  View</a></span></dt><dt><span class="section"><a href="#N103A2">Running The Sample FRUIT Tests</a></span></dt></dl></dd><dt><span class="section"><a href="#automated-ap3">Automated Test Procedures</a></span></dt><dd><dl><dt><span class="section"><a href="#AutomatedTest1-ap3">FruitLaunchManagerTest</a></span></dt></dl></dd></dl></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="manual-ap3"></a>Manual Test Procedures</h2></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="ManualTest1-ap3"></a>Verifying Empty  View</h3></div></div></div><p>
+				<span class="emphasis"><em>
+					<a class="link" href="#Installation-ap1" title="Installation">
+						This test assumes that your Eclipse workspace has been set up according to the instructions earlier in this
+						document. If you have not done so, please go back and set up your workspace with all of the source code
+						properly before continuing with this test.
+					</a>
+				</em></span>
+				<div class="orderedlist"><ol type="1"><li>
+						Right click on any of the Nibbler projects in your workspace, select Run As &gt; Eclipse Application.
+					</li><li>
+						Once the new instance of Eclipse loads, select the Window Menu &gt; Show View &gt; Other
+					</li><li>
+						Expand the Fortran folder. Select the PUnit view, click ok.
+						<div class="figure"><a name="N1038B"></a><p class="title"><b>Figure&nbsp;C.1.&nbsp;Select the PUnit View</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap3-manualTest1-1.jpeg" alt="Select the PUnit View"></div></div></div><br class="figure-break"></li><li>
+						Verify that the view that launches matches the screenshot below. <span class="emphasis"><em>Note that your tabs might not
+						match exactly the ones in the figure below, that is ok.</em></span><div class="figure"><a name="N10398"></a><p class="title"><b>Figure&nbsp;C.2.&nbsp;The Empty Punit View</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap3-manualTest1-2.jpeg" alt="The Empty Punit View"></div></div></div><br class="figure-break"></li></ol></div>
+			</p></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="N103A2"></a>Running The Sample FRUIT Tests</h3></div></div></div><span class="emphasis"><em>
+				<a class="link" href="#Installation-ap1" title="Installation">
+					This test assumes that your Eclipse workspace has been set up according to the instructions earlier in this
+					document. If you have not done so, please go back and set up your workspace with all of the source code
+					properly before continuing with this test.
+				</a>
+			</em></span><div class="orderedlist"><ol type="1"><li>
+					Right click on any of the Nibbler projects in your workspace, select Run As &gt; Eclipse Application.
+				</li><li>
+					Once the new instance of Eclipse loads, install the Subverse Plugin as <a class="link" href="#Subverse-ap1">described
+					earlier in this document</a>.
+				</li><li>
+					Check out the Nibbler code into the new instance of Eclipse as <a class="link" href="#Nibbler-ap1" title="Nibbler Code">described earlier in
+					this document</a> with one minor difference. Once the screen appears with the check boxes next to each project,
+					uncheck all projects except for FruitExample1, then continue per the instructions.
+				</li><li>
+					The checked out project, FruitExample1, is a Fortran Project containing the sample code that is shipped with
+					FRUIT. Because it is a Fortran Project, it contains metadata that references specific locations of compliers and
+					other machine dependent components that are specific to the computer where the project was first created. For this
+					reason, create a new Fortran Project by selecting the File menu &gt; New &gt; Other &gt; Expand the Fortran Folder &gt; Fortran
+					Project. 
+				</li><li>
+					Name the project 'Calculator' or something similar. For Project type, select Executable (Gnu Fortran). Uncheck the
+					"Show project types and toolchains only if they are supported on the platform" checkbox, then select GCC Tool Chain
+					under Toolchain. Click finish.
+				</li><li>
+					Right click on the new project, select Properties. On the resulting window, click on C/C++ Build. Select "All
+					Configurations" on the drop down menu. Then select settings under C/C++ build. Click on the Binary Parsers
+					tab. Deselect any of the checked items, then check Elf Parser. Finally, click once on Elf Parser and click the
+					Move Up button until it is at the top of the list.
+				</li><li>
+					From the FruitExample1 project, right click on <code class="filename">calculator.f90</code>, and select Copy. Then right click
+					on the new project, and select paste. 
+				</li><li>
+					Right click on the new project, select New &gt; Other. Expan the Fortran folder, then expand the FRUIT folder. Select
+					New FRUIT Test Case. In the next window, Expand workspace, then single left click on the name of the project you
+					copied <code class="filename">calculator.f90</code> into. Then select <code class="filename">calculator.f90</code> in the right pane
+					by checking its check box. Select ok. For module under test, enter <code class="code">calculator</code> into the text box. Click
+					ok.
+				</li><li>
+					Open the newly created <code class="filename">calculator_test.f90</code> file in the editor by double clicking on it. Delete
+					all its contents. Then open <code class="filename">calculator_test.f90</code> from the FruitExample1 project. Copy all of its
+					contents and paste them into the now empty <code class="filename">calculator_test.f90</code> file. 
+				</li><li>
+					Right click on the new project, select Run FRUIT Test. The PUnit view should appear and be populated. Verify
+					that its contents match the figure below. <span class="emphasis"><em>Note that your tabs might be different than those shown
+					in the figure, that is acceptable</em></span>.
+					<div class="figure"><a name="N103E8"></a><p class="title"><b>Figure&nbsp;C.3.&nbsp;PUnit View After Manual Test</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/ap2-punitView.jpeg" alt="PUnit View After Manual Test"></div></div></div><br class="figure-break"></li></ol></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="automated-ap3"></a>Automated Test Procedures</h2></div></div></div><div class="section" lang="en-us"><div class="titlepage"><div><div><h3 class="title"><a name="AutomatedTest1-ap3"></a>FruitLaunchManagerTest</h3></div></div></div><p>
+                The Fruit Automated tests requires a specially setup workspace to run the test on.  This workspace is included
+                in the edu.uiuc.cs427.nibbler.fruit.tests plugin.
+            </p><div class="orderedlist"><ol type="1"><li>
+			            In Eclipse right click on the edu.uiuc.cs427.nibbler.fruit.tests and select Run As &gt; Run Configurations...
+					</li><li>
+                        In the Run Configurations Dialog Box create a new JUnit Plugin Test Configuration
+					</li><li>
+					   On the test tab select run all tests in the selected project, and specify edu.uiuc.cs427.nibbler.fruit.tests as the project.
+					</li><li>
+                        On the main tab, for the workspace data field, select the Workspace button and select 
+                        edu.uiuc.cs427.nibbler.fruit.tests/src/workspaceForFruitLaunchManagerTest.  Verify that the clear
+                        checkbox is not selected.
+					</li><li>
+                        Select Run and this configuration will run the FruitLaunchManagerTest using the workspace provided at
+                        edu.uiuc.cs427.nibbler.fruit.tests/src/workspaceForFruitLaunchManagerTest
+					</li></ol></div></div></div></div></div></body></html>

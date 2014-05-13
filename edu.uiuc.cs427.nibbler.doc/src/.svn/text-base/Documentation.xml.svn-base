@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book id="dbApiDocumentation" lang="en-us"
+	xmlns:xi="http://www.w3.org/2001/XInclude" vendor="IBM">
+
+	<title>CS427 Group Nibbler - Unit Testing With FRUIT</title>
+	<info>
+		<author>
+			<personname>
+				<firstname>Charlie</firstname>
+				<surname>Meyer</surname>
+			</personname>
+			<email>cemeyer2@uiuc.edu</email>
+		</author>
+		<author>
+			<personname>
+				<firstname>Anthony</firstname>
+				<surname>Gelsomini</surname>
+			</personname>
+			<email>gelsomi1@uiuc.edu</email>
+		</author>
+		<author>
+			<personname>
+				<firstname>Dave</firstname>
+				<surname>Buhl</surname>
+			</personname>
+			<email>buhl1@illinois.edu</email>
+		</author>
+		<author>
+			<personname>
+				<firstname>Pat</firstname>
+				<surname>Guelah</surname>
+			</personname>
+			<email>patguelah@yahoo.com</email>
+		</author>
+	</info>
+	
+	<toc/>
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Chapter1.xml" />
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Chapter2.xml" />
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Chapter3.xml" />
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Appendix1.xml" />
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Appendix2.xml" />
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Appendix3.xml" />
+</book>

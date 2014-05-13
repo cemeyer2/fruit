@@ -1,0 +1,26 @@
+/CASTVisitor.java/1.8/Wed Apr  9 19:19:12 2008//TCDT_5_0_0
+/ICASTArrayDesignator.java/1.6/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTArrayModifier.java/1.6/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTCompositeTypeSpecifier.java/1.5/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTDeclSpecifier.java/1.4/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+/ICASTDesignatedInitializer.java/1.5/Thu Jun 23 16:02:14 2005/-ko/TCDT_5_0_0
+/ICASTDesignator.java/1.5/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTElaboratedTypeSpecifier.java/1.5/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTEnumerationSpecifier.java/1.5/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTFieldDesignator.java/1.6/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTPointer.java/1.5/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTSimpleDeclSpecifier.java/1.6/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+/ICASTTypeIdInitializerExpression.java/1.6/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTTypedefNameSpecifier.java/1.6/Mon Jun 27 12:17:23 2005//TCDT_5_0_0
+/ICASTVisitor.java/1.3/Thu Feb 28 16:43:32 2008//TCDT_5_0_0
+/ICArrayType.java/1.4/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+/ICBasicType.java/1.5/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+/ICCompositeTypeScope.java/1.8/Wed Jun 11 15:49:58 2008//TCDT_5_0_0
+/ICExternalBinding.java/1.4/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+/ICFunctionPrototypeScope.java/1.4/Fri Jun 23 17:27:02 2006//TCDT_5_0_0
+/ICFunctionScope.java/1.8/Wed Jun 11 15:49:58 2008//TCDT_5_0_0
+/ICPointerType.java/1.6/Wed Jun 11 15:49:58 2008//TCDT_5_0_0
+/ICQualifierType.java/1.6/Wed Jun 11 15:49:58 2008//TCDT_5_0_0
+/ICScope.java/1.8/Thu Jun 23 16:02:14 2005//TCDT_5_0_0
+D/gcc////
+D/gnu////

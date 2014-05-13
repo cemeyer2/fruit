@@ -1,0 +1,31 @@
+/CConfigBasedDescriptor.java/1.14/Fri May  9 14:49:29 2008//TCDT_5_0_0
+/CConfigBasedDescriptorManager.java/1.21/Mon Apr 28 18:35:10 2008//TCDT_5_0_0
+/CContentTypes.java/1.2/Mon Mar 26 14:07:01 2007/-kk/TCDT_5_0_0
+/CCoreInternals.java/1.6/Tue Feb 19 13:16:05 2008/-kk/TCDT_5_0_0
+/CCorePluginResources.properties/1.32/Thu Mar 13 15:09:34 2008//TCDT_5_0_0
+/CCorePreferenceInitializer.java/1.19/Wed Apr  9 11:35:51 2008//TCDT_5_0_0
+/CDTLogWriter.java/1.8/Fri Jun 23 17:26:54 2006/-ko/TCDT_5_0_0
+/CExtensionDescriptor.java/1.2/Thu Apr 19 17:51:21 2007//TCDT_5_0_0
+/CExtensionInfo.java/1.9/Thu Jun 14 18:04:00 2007/-ko/TCDT_5_0_0
+/CExtensionReference.java/1.16/Thu Jun 14 18:04:00 2007/-ko/TCDT_5_0_0
+/COwner.java/1.17/Wed Apr  9 11:35:51 2008/-ko/TCDT_5_0_0
+/COwnerConfiguration.java/1.5/Fri Jun 23 17:52:42 2006//TCDT_5_0_0
+/CdtVarPathEntryVariableManager.java/1.6/Mon May  5 13:16:59 2008//TCDT_5_0_0
+/ConsoleOutputSniffer.java/1.6/Wed Jun 11 15:49:57 2008/-ko/TCDT_5_0_0
+/InternalCExtension.java/1.8/Thu Jul 14 20:35:58 2005/-ko/TCDT_5_0_0
+/LocalProjectScope.java/1.4/Mon May  5 13:16:59 2008/-kk/TCDT_5_0_0
+/PathEntryVariableManager.java/1.8/Tue Apr 29 17:24:45 2008//TCDT_5_0_0
+/PathEntryVariableResolver.java/1.3/Thu Jun 23 16:01:08 2005//TCDT_5_0_0
+/PositionTracker.java/1.2/Wed Jul 12 14:04:51 2006/-kk/TCDT_5_0_0
+/PositionTrackerChain.java/1.1/Mon Jul  3 13:01:03 2006/-kk/TCDT_5_0_0
+/PositionTrackerManager.java/1.4/Wed Nov 22 12:44:33 2006/-kk/TCDT_5_0_0
+/ProcessClosure.java/1.14/Wed Jun 11 15:49:57 2008/-ko/TCDT_5_0_0
+/SystemBuildConsole.java/1.5/Wed Apr  9 11:35:51 2008//TCDT_5_0_0
+D/cdtvariables////
+D/contentassist////
+D/dom////
+D/envvar////
+D/ffs////
+D/make////
+D/parser////
+D/resources////

@@ -1,0 +1,24 @@
+/AbstractPDOMIndexer.java/1.6/Fri Mar 28 17:59:05 2008/-kk/TCDT_5_0_0
+/DeltaAnalyzer.java/1.5/Tue Apr  1 14:03:41 2008/-kk/TCDT_5_0_0
+/FileExistsCache.java/1.1/Mon Apr  7 13:36:24 2008//TCDT_5_0_0
+/IndexerASTVisitor.java/1.8/Fri Feb 15 10:41:25 2008/-kk/TCDT_5_0_0
+/IndexerPreferences.java/1.12/Fri Mar 28 17:59:05 2008/-kk/TCDT_5_0_0
+/Messages.java/1.8/Tue Feb 19 12:22:10 2008/-kk/TCDT_5_0_0
+/PDOMFastIndexer.java/1.1/Fri Dec  7 10:33:29 2007//TCDT_5_0_0
+/PDOMFastIndexerTask.java/1.2/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/PDOMFullIndexer.java/1.1/Fri Dec  7 10:33:29 2007//TCDT_5_0_0
+/PDOMFullIndexerTask.java/1.2/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/PDOMIndexerTask.java/1.52/Fri Apr 25 10:33:50 2008/-kk/TCDT_5_0_0
+/PDOMNullIndexer.java/1.1/Fri Dec  7 10:33:29 2007//TCDT_5_0_0
+/PDOMRebuildTask.java/1.16/Mon Feb 25 10:03:31 2008/-kk/TCDT_5_0_0
+/PDOMUpdateTask.java/1.8/Mon Feb 25 10:03:31 2008/-kk/TCDT_5_0_0
+/ProjectIndexerInputAdapter.java/1.3/Mon Apr  7 13:36:23 2008//TCDT_5_0_0
+/TodoTaskParser.java/1.3/Mon Mar 24 01:03:26 2008//TCDT_5_0_0
+/TodoTaskUpdater.java/1.7/Tue Apr 29 17:24:45 2008//TCDT_5_0_0
+/TranslationUnitCollector.java/1.5/Thu May  8 09:41:13 2008/-kk/TCDT_5_0_0
+/TriggerNotificationTask.java/1.2/Wed Feb 27 10:48:49 2008//TCDT_5_0_0
+D/ctags////
+D/fast////
+D/full////
+/messages.properties/1.10/Tue Feb 19 12:22:11 2008/-kk/TCDT_5_0_0
+D/nulli////

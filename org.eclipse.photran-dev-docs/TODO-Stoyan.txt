@@ -1,12 +1,13 @@
 TYPE CHECKER
-- Read: Fortran types, kinds, array forms; specification stmts
-- Type check constants
-- Expressions formed from constants
++ Read: Fortran types, kinds, array forms; specification stmts
++ Type check constants
++ Expressions formed from constants
+- Intrinsic functions
 - User-defined functions
   - Optional arguments
   - Keyword arguments
-- Intrinsic functions
 - Derived type components
+- Overloading/interfaces
 - Arrays
 - Structure constructors
 - Kinds?

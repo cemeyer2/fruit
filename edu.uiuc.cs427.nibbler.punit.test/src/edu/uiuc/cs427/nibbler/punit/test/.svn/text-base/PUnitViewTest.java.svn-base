@@ -1,0 +1,169 @@
+/**
+ * 
+ */
+package edu.uiuc.cs427.nibbler.punit.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import junit.framework.TestCase;
+
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.ui.PlatformUI;
+
+import edu.uiuc.cs427.nibbler.fruit.core.parser.FruitAssertionMessage;
+import edu.uiuc.cs427.nibbler.punit.views.PUnitView;
+import junit.framework.TestCase;
+import junit.framework.AssertionFailedError;
+/**
+ * @author pbguelah
+ *
+ */
+public class PUnitViewTest extends TestCase {
+
+	/**
+	 * @param name
+	 */
+	private final String VIEW_ID = 
+		"edu.uiuc.cs427.nibbler.punit.views.PUnitView";
+	/**
+	 * Object being tested
+	 */
+	private PUnitView testView;
+	
+	public PUnitViewTest(String name) {
+		super(name);
+	}
+
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	protected void setUp() throws Exception {
+		super.setUp();
+		waitForJobs();
+		testView = (PUnitView)
+		PlatformUI
+		.getWorkbench()
+		.getActiveWorkbenchWindow()
+		.getActivePage()
+		.showView(VIEW_ID);
+		// delay for 15 seconds so that the PUnit view can be seen
+		waitForJobs();
+		delay(15000);
+	}
+
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#tearDown()
+	 */
+	protected void tearDown() throws Exception {
+		super.tearDown();
+		waitForJobs(); 
+		PlatformUI
+		.getWorkbench()
+		.getActiveWorkbenchWindow()
+		.getActivePage().hideView(testView);
+	}
+
+	/*
+	 *  Run the view test. 
+	 */
+	public void testPUnitView(){
+		TableViewer viewer = testView.getPunitViewer();
+
+	FruitAssertionMessage test = new FruitAssertionMessage(System.currentTimeMillis(), System.currentTimeMillis()+5000, "Test7"); 
+		
+	Object[] expectedContent = new Object[] { test };
+		// assert valid content 
+		IStructuredContentProvider contentProvider = 
+			(IStructuredContentProvider) viewer.getContentProvider();
+		
+		assertEquals(expectedContent, 
+				contentProvider.getElements(viewer.getInput()));
+
+		// assert valid label
+	/*	ITableLabelProvider labelProvider = 
+			(ITableLabelProvider) viewer.getLabelProvider();
+		for(int i = 0; i < expectedLabels.length; i++)
+			assertEquals(expectedLabels[i],
+					labelProvider.getColumnText(expectedContent[i],1));
+	*/
+	}
+
+	/**
+	 * Test method for {@link edu.uiuc.cs427.nibbler.punit.views.PUnitView#createPartControl(org.eclipse.swt.widgets.Composite)}.
+	 */
+	//public void testCreatePartControlComposite() {
+		//fail("Not yet implemented");
+	//}
+
+	/**
+	 * Test method for {@link edu.uiuc.cs427.nibbler.punit.views.PUnitView#addTest(edu.uiuc.cs427.nibbler.fruit.core.parser.FruitAssertionMessage)}.
+	 */
+	/*public void testAddTest() {
+		fail("Not yet implemented");
+	}
+	*/
+	
+	private void delay(long waitTimeMillis){
+		Display display = Display.getCurrent();
+		// process input if this is the UI thread
+		if(display != null){
+			long endTimeMillis = System.currentTimeMillis()+ waitTimeMillis;
+			while(System.currentTimeMillis() < endTimeMillis)
+			{
+				if(!display.readAndDispatch())
+					display.sleep();
+			}
+			display.update();
+		}
+		else {
+			try {
+				Thread.sleep(waitTimeMillis);
+			}
+			catch(InterruptedException e){
+			}
+		}
+	}
+
+	/*
+	 * Wait until all background tasks are completed
+	 */
+	public void waitForJobs(){
+		while(Job.getJobManager().currentJob() != null)
+			delay(1000);
+	}
+	
+	// overloaded asserts for 2 arrays
+	private void assertEquals(Object[] expected, Object[] actual){
+		if(expected == null) {
+			if(actual == null)
+				return; 
+			throw new AssertionFailedError("expected is null, but actual is not");
+
+		}
+		else {
+			if (actual == null)
+				throw new AssertionFailedError("expected is not null, but actual is");
+		}
+		assertEquals("expected.length"
+				+ expected.length
+				+ ", but actual.length "
+				+ actual.length, 
+				expected.length, 
+				actual.length);
+		for(int i = 0; i < actual.length; i++)
+			assertEquals(
+					"expected[" + i + "] is not equal to actual[" + i + "]", 
+					expected[i].toString(), 
+					actual[i].toString());
+	}
+}
+

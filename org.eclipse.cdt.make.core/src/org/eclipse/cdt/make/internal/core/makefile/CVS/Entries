@@ -1,0 +1,29 @@
+/AbstractMakefile.java/1.13/Wed Apr  2 10:37:56 2008//TCDT_5_0_0
+/ArchiveTarget.java/1.5/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/BadDirective.java/1.5/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/Command.java/1.9/Fri Jun 23 17:52:21 2006//TCDT_5_0_0
+/Comment.java/1.7/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/DefaultRule.java/1.8/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/Directive.java/1.7/Wed Apr  2 10:37:56 2008//TCDT_5_0_0
+/EmptyLine.java/1.8/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/IgnoreRule.java/1.8/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/InferenceRule.java/1.9/Fri Jun 23 17:52:20 2006//TCDT_5_0_0
+/MacroDefinition.java/1.12/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/MakeFileConstants.java/1.5/Fri Jun 23 17:52:21 2006//TCDT_5_0_0
+/MakeFileResources.properties/1.5/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/MakefileMessages.java/1.5/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/MakefileReader.java/1.6/Fri Jun 23 17:52:21 2006//TCDT_5_0_0
+/NullMakefile.java/1.10/Tue Apr  8 21:50:33 2008//TCDT_5_0_0
+/Parent.java/1.7/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/PosixRule.java/1.8/Fri Jun 23 17:52:20 2006//TCDT_5_0_0
+/PreciousRule.java/1.8/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/Rule.java/1.8/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/SccsGetRule.java/1.8/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/SilentRule.java/1.8/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/SpecialRule.java/1.7/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/SuffixesRule.java/1.8/Fri Jun 23 17:52:20 2006//TCDT_5_0_0
+/Target.java/1.8/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/TargetRule.java/1.8/Fri Jun 23 17:52:22 2006//TCDT_5_0_0
+/Util.java/1.9/Fri Jun 23 17:52:21 2006//TCDT_5_0_0
+D/gnu////
+D/posix////

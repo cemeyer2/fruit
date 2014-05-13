@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>CDT @branchVersion@ Build @buildId@</title>
+</head>
+<body>
+<h2>CDT @branchVersion@ Build @buildId@</h2>
+<p><a href="compilelog.txt">Compile Log</a></p>
+<p><a href="junits.html">JUnit Results</a></p>
+<h3>CDT Master Feature</h3>
+<p>
+<a href="cdt-master-@branchVersion@-@buildId@.zip">cdt-master-@branchVersion@-@buildId@.zip</a>
+</p>
+<p>
+To install CDT:
+<ol>
+<li>Download the master zip file and put it somewhere on your machine.</li>
+<li>Fire up Eclipse (The Platform Run-time 3.4M6a is minimum recommended)</li>
+<li>Help->Software Updates</li>
+<li>On the Available Features tab, select Manage sites...</li>
+<li>Add... in the master zip as an Archive...</li>
+<li>Under CDT Main Features select the one you want. C/C++ Development
+Tools is the main one. The SDK adds in the schemas and source for
+building extensions to the CDT. The C/C++ Development Platform is the
+Tools without the GNU toolchain support.</li>
+<li>You can install other neat things, including the Mylyn bridge, from
+the CDT Optional Features category.</li>
+</ol>
+</p>
+<p>This feature has everything, including:</p>
+<ul>
+<li>CDT Platform Feature - includes editor, search, builders, launch, debug, user documentation</li>
+<li>CDT Runtime Feature - superset of platform feature that adds gnu toolchain integrations for build/debug</li>
+<li>CDT SDK Feature - superset of runtime that adds source and extension point schemas</li>
+<li>GDB Hardware Debugging - provides a launch configuration for launching gdb to do hardware debugging.</li>
+<li>XL C/C++ Compiler Support - provides an error parser and managed build support for IBM's XL C/C++ compilers.</li>
+<li>LR Parser - provides a parser for the ISO/IEC 9899:1999 variant of the C programming language (aka C99), generated from a 
+grammar using the LPG parser generator.  The grammar can be reused and extended to 
+create your own parser for variants on the C programming language.</li>
+<li>Unified Parallel C Support - Provides support for the Unified Parallel C programming langugage.  
+Provides parsing/indexing infrastructure and language definition, allowing the UPC language to be recognized by CDT.  
+Requires the LR parser feature.</li>
+<li>Mylyn Bridge - allows CDT to work with Mylyn.</li>
+<li>CDT Utilities - provides utilities for C/C++ Development Tools</li>
+<li>CDT Testing Feature - includes all test plugins required for running automated JUnit tests</li>
+</ul>
+</body>
+</html>

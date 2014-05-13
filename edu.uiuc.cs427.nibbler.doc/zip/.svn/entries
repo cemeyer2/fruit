@@ -1,0 +1,54 @@
+8
+
+dir
+8056
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.doc/zip
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-10T23:00:44.681765Z
+7550
+cemeyer2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+docbook-xml-4.5.zip
+file
+
+
+
+
+2008-10-24T16:11:03.165000Z
+03083e288e87a7e829e437358da7ef9e
+2008-12-10T23:00:44.681765Z
+7550
+cemeyer2
+has-props
+
+docbook-xsl-snapshot.zip
+file
+
+
+
+
+2008-10-24T16:11:03.149000Z
+0181e736d546202d6a537ed9254e70ed
+2008-12-10T23:00:44.681765Z
+7550
+cemeyer2
+has-props
+

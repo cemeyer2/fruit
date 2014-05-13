@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <!--==========================================-->
+   <!-- Free Form and Fixed Form Fortran Editors -->   
+   <!--==========================================-->
+   <extension
+         point="org.eclipse.ui.editors"
+         id="org.eclipse.photran.ui.FortranEditor">
+         
+      <!-- Since freeFormFortranSource and fixedFormFortranSource are "sub-content types" of fortranSource,
+           we will bind both editors to the fortranSource content type; however, whichever content type
+           binding is given first will be "tighter" and used as the default.
+           That way, fixed form files will open in the fixed form editor by default, but they can also
+           be opened in the free form editor (right click, and choose Open With).  Similarly, free form files
+           can be opened in the fixed form editor. -->
+      <editor
+            default="true"
+            name="Fortran Editor (Free Format)"
+            icon="icons/full/obj16/f_file_obj.gif"
+            class="org.eclipse.photran.internal.ui.editor.FreeFormFortranEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="org.eclipse.photran.ui.FreeFormFortranEditor">
+         <contentTypeBinding
+              contentTypeId="org.eclipse.photran.core.freeFormFortranSource" />
+         <contentTypeBinding
+              contentTypeId="org.eclipse.photran.core.fortranSource" />
+      </editor>
+      <editor
+            default="true"
+            name="Fortran Editor (Fixed Format)"
+            icon="icons/full/obj16/f_file_obj.gif"
+            class="org.eclipse.photran.internal.ui.editor.FixedFormFortranEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="org.eclipse.photran.ui.FixedFormFortranEditor">
+         <contentTypeBinding
+              contentTypeId="org.eclipse.photran.core.fixedFormFortranSource" />
+         <contentTypeBinding
+              contentTypeId="org.eclipse.photran.core.fortranSource" />
+      </editor>
+   </extension>
+   
+   <!-- Define a Fortran Editor context -->   
+   <extension
+            point="org.eclipse.ui.contexts">
+          <context
+            name="Fortran Editor"
+            parentId="org.eclipse.ui.textEditorScope"
+            id="org.eclipse.photran.ui.FortranEditorContext">
+       </context>
+   </extension>
+
+   <!-- Commands, key bindings, and popup menu entries
+   
+        - Comment/Uncomment (Ctrl+/)
+        
+        Each command should have its ID declared as a constant in AbstractFortranEditor, and
+        it must be set up in AbstractFortranEditor#createActions().
+        
+        For menubarPath, see class ITextEditorActionConstants -->
+
+   <extension point="org.eclipse.ui.popupMenus">
+	  <viewerContribution 
+	        targetID="#FortranEditorContextMenu" 
+	        id="org.eclipse.photran.ui.BlockCommentEditorContribution">
+	     <action 
+	           label="Comment/Uncomment" 
+               definitionId="org.eclipse.photran.ui.CommentCommand"
+	           class="org.eclipse.photran.internal.ui.actions.FortranBlockCommentActionDelegate" 
+	           menubarPath="group.edit" 
+	           id="org.eclipse.photran.ui.BlockCommentMenuAction"/>
+	  </viewerContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Source Editing"
+            description="Source Editing"
+            id="org.eclipse.photran.ui.SourceEditingCategory">
+      </category>
+      <command
+            categoryId="org.eclipse.photran.ui.SourceEditingCategory"
+            description="Comment/Uncomment"
+            id="org.eclipse.photran.ui.CommentCommand"
+            name="Photran Block Comment">
+      </command>
+   </extension>
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Comment/Uncomment"
+            description="Comment/Uncomment"
+            visible="false"
+            id="org.eclipse.photran.ui.CommentUncomment">
+	     <action 
+	           label="Comment/Uncomment" 
+               menubarPath="edit/additions"
+               definitionId="org.eclipse.photran.ui.CommentCommand"
+	           class="org.eclipse.photran.internal.ui.actions.FortranBlockCommentActionDelegate" 
+	           id="org.eclipse.photran.ui.BlockCommentAction">
+	     </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation targetID="org.eclipse.photran.ui.CommentUncomment">
+         <part id="org.eclipse.photran.ui.FreeFormFortranEditor"/>
+         <part id="org.eclipse.photran.ui.FixedFormFortranEditor"/>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+            point="org.eclipse.ui.bindings">
+      <!--  win32:  M1=CTRL,    M2=SHIFT, M3=ALT, M4=-
+            carbon: M1=COMMAND, M2=SHIFT, M3=ALT, M4=CTRL -->
+        <key
+            sequence="M1+/"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.photran.ui.FortranEditorContext"
+            commandId="org.eclipse.photran.ui.CommentCommand"/>
+        <key
+            sequence="M1+M2+/"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.photran.ui.FortranEditorContext"
+            commandId="org.eclipse.photran.ui.CommentCommand"/>
+   </extension>
+
+   <!-- Define toggling a breakpoint as the default double-click action -->
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            targetID="org.eclipse.photran.ui.FreeFormFortranEditor"
+            id="org.eclipse.photran.ui.FreeFormBreakpointRulerAction">
+         <action
+               label="Toggle Breakpoint"
+               class="org.eclipse.cdt.debug.internal.ui.actions.ManageBreakpointRulerActionDelegate"
+               actionID="RulerDoubleClick"
+               id="org.eclipse.cdt.debug.ui.CEditor.ManageBreakpointRulerAction">
+         </action>
+      </editorContribution>
+      <editorContribution
+            targetID="org.eclipse.photran.ui.FixedFormFortranEditor"
+            id="org.eclipse.photran.ui.FixedFormBreakpointRulerAction">
+         <action
+               label="Toggle Breakpoint"
+               class="org.eclipse.cdt.debug.internal.ui.actions.ManageBreakpointRulerActionDelegate"
+               actionID="RulerDoubleClick"
+               id="org.eclipse.cdt.debug.ui.CEditor.ManageBreakpointRulerAction">
+         </action>
+      </editorContribution>
+   </extension>
+   
+   <!--=============================-->
+   <!-- ActionSet-part associations -->
+   <!--=============================-->
+   <extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation
+            targetID="org.eclipse.ui.edit.text.actionSet.annotationNavigation">
+         <part id="org.eclipse.photran.ui.FreeFormFortranEditor"/>
+         <part id="org.eclipse.photran.ui.FixedFormFortranEditor"/>
+      </actionSetPartAssociation>      
+   </extension>
+
+   <!--===================================-->
+   <!-- Fortran-specific preference pages -->
+   <!--===================================-->
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Fortran"
+            class="org.eclipse.photran.internal.ui.preferences.MainFortranPreferencePage"
+            id="org.eclipse.photran.ui.MainFortranPreferencePage">
+      </page>
+      <page
+            name="Editor"
+            category="org.eclipse.photran.ui.MainFortranPreferencePage"
+            class="org.eclipse.photran.internal.ui.preferences.EditorPreferencePage"
+            id="org.eclipse.photran.ui.FortranEditorPreferencePage">
+      </page>
+      <page
+            name="CDT Integration"
+            category="org.eclipse.photran.ui.MainFortranPreferencePage"
+            class="org.eclipse.photran.internal.ui.preferences.CDTFortranPreferencePage"
+            id="org.eclipse.photran.ui.CDTFortranPreferencePage">
+      </page>
+   </extension>
+
+   <!--=========================================-->
+   <!-- Fortran-specific project property pages -->
+   <!--=========================================-->
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="org.eclipse.photran.internal.ui.properties.Page_head_general"
+            id="org.eclipse.photran.ui.newui.Page_head_general"
+            name="Fortran General"
+            >
+         <filter
+               name="projectNature"
+               value="org.eclipse.cdt.core.cnature">
+         </filter>            
+         <enabledWhen>
+            <or>
+		     <instanceof value="org.eclipse.core.resources.IProject"/>
+		     <instanceof value="org.eclipse.cdt.core.model.ICProject"/>
+		     
+		     <instanceof value="org.eclipse.core.resources.IFolder"/>
+		     <instanceof value="org.eclipse.cdt.core.model.ICContainer"/>
+
+	         <instanceof value="org.eclipse.core.resources.IFile"/>
+         	 <instanceof value="org.eclipse.cdt.core.model.ITranslationUnit"/>
+		    </or>          
+         </enabledWhen>
+      </page>
+    </extension>    
+
+   <!--=============================================-->
+   <!-- Source Viewer Configuration Extension Point -->
+   <!--=============================================-->
+   <extension-point
+   	id="sourceViewerConfig"
+   	name="Source Viewer Configuration"
+   	schema="schema/sourceViewerConfig.exsd"/>
+</plugin>

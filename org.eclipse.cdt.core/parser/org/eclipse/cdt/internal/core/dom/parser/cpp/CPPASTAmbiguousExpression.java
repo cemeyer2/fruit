@@ -1,0 +1,60 @@
+/*******************************************************************************
+ * Copyright (c) 2004, 2008 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM - Initial API and implementation
+ *******************************************************************************/
+package org.eclipse.cdt.internal.core.dom.parser.cpp;
+
+import org.eclipse.cdt.core.dom.ast.IASTExpression;
+import org.eclipse.cdt.core.dom.ast.IASTNode;
+import org.eclipse.cdt.core.dom.ast.IScope;
+import org.eclipse.cdt.core.dom.ast.IType;
+import org.eclipse.cdt.core.parser.util.ArrayUtil;
+import org.eclipse.cdt.internal.core.dom.parser.IASTAmbiguousExpression;
+import org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor;
+
+public class CPPASTAmbiguousExpression extends CPPASTAmbiguity implements
+        IASTAmbiguousExpression {
+
+    private IASTExpression [] exp = new IASTExpression[2];
+    private int expPos=-1;
+    
+    @Override
+	public IScope getAffectedScope() {
+    	// an expression does not introduce names to a parent scope.
+    	return null;
+    }
+    
+    public CPPASTAmbiguousExpression(IASTExpression... expressions) {
+		for(IASTExpression e : expressions)
+			addExpression(e);
+	}
+
+	public void addExpression(IASTExpression e) {
+    	if (e != null) {
+    		exp = (IASTExpression[]) ArrayUtil.append( IASTExpression.class, exp, ++expPos, e );
+    		e.setParent(this);
+			e.setPropertyInParent(SUBEXPRESSION);
+    	}
+    }
+
+    public IASTExpression[] getExpressions() {
+        exp = (IASTExpression[]) ArrayUtil.removeNullsAfter( IASTExpression.class, exp, expPos );
+    	return exp;
+    }
+
+    @Override
+	protected IASTNode[] getNodes() {
+        return getExpressions();
+    }
+    
+    public IType getExpressionType() {
+    	return CPPVisitor.getExpressionType(this);
+    }
+
+}

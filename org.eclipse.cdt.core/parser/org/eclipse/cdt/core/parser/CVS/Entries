@@ -1,0 +1,32 @@
+/AbstractParserLogService.java/1.3/Wed Apr  9 19:19:12 2008/-kk/TCDT_5_0_0
+/CodeReader.java/1.18/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/DefaultLogService.java/1.6/Mon Nov 13 15:48:54 2006/-ko/TCDT_5_0_0
+/Directives.java/1.8/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/EndOfFileException.java/1.5/Wed Feb 28 15:52:22 2007/-ko/TCDT_5_0_0
+/ExtendedScannerInfo.java/1.4/Tue Jan  8 11:41:04 2008//TCDT_5_0_0
+/GCCKeywords.java/1.12/Fri Apr 11 06:47:41 2008/-ko/TCDT_5_0_0
+/ICodeReaderCache.java/1.5/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/IExtendedScannerInfo.java/1.5/Wed Jun 11 15:49:53 2008//TCDT_5_0_0
+/IGCCToken.java/1.10/Tue Oct  9 15:09:54 2007/-ko/TCDT_5_0_0
+/IMacro.java/1.5/Fri Dec 21 09:35:52 2007//TCDT_5_0_0
+/IParserLogService.java/1.6/Fri Jun 23 17:26:58 2006/-ko/TCDT_5_0_0
+/IPersistableProblem.java/1.1/Mon Dec  3 00:09:15 2007//TCDT_5_0_0
+/IPreprocessorDirective.java/1.1/Wed Feb 28 15:52:22 2007//TCDT_5_0_0
+/IProblem.java/1.19/Thu Feb 21 10:19:59 2008/-ko/TCDT_5_0_0
+/IScanner.java/1.46/Wed Apr  9 19:19:12 2008/-ko/TCDT_5_0_0
+/IScannerInfo.java/1.7/Mon May  5 13:16:59 2008/-ko/TCDT_5_0_0
+/IToken.java/1.28/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/ITokenDuple.java/1.26/Wed Apr  9 19:19:12 2008/-ko/TCDT_5_0_0
+/KeywordSetKey.java/1.4/Thu Feb  7 23:13:59 2008//TCDT_5_0_0
+/Keywords.java/1.15/Mon Oct 29 16:33:15 2007/-ko/TCDT_5_0_0
+/NullLogService.java/1.6/Mon Nov 13 15:48:54 2006/-ko/TCDT_5_0_0
+/OffsetLimitReachedException.java/1.11/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/ParseError.java/1.9/Thu Feb  7 23:13:59 2008/-ko/TCDT_5_0_0
+/ParserFactory.java/1.49/Wed Jun 11 15:49:53 2008/-ko/TCDT_5_0_0
+/ParserLanguage.java/1.5/Thu Feb  7 23:13:59 2008/-ko/TCDT_5_0_0
+/ParserMode.java/1.11/Thu Feb  7 23:13:59 2008/-ko/TCDT_5_0_0
+/ScannerInfo.java/1.7/Tue Jan  8 11:41:04 2008/-ko/TCDT_5_0_0
+D/ast////
+D/ast2////
+D/extension////
+D/util////

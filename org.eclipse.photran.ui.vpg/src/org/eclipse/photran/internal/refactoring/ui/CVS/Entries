@@ -1,0 +1,7 @@
+/AbstractFortranRefactoringActionDelegate.java/1.1/Thu Aug 23 17:41:19 2007//
+/AbstractFortranRefactoringWizard.java/1.1/Thu Aug 23 17:41:19 2007//
+/ExtractLocalVariableAction.java/1.2/Mon Feb 11 00:31:43 2008//
+/ExtractProcedureAction.java/1.1/Thu Aug 23 17:41:19 2007//
+/IntroImplicitNoneAction.java/1.2/Sat Nov 10 05:44:42 2007//
+/MoveCommonToModuleAction.java/1.1/Mon Aug 18 23:47:00 2008//
+/RenameAction.java/1.1/Thu Aug 23 17:41:19 2007//

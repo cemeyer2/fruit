@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PUnit Plug-in
+Bundle-SymbolicName: edu.uiuc.cs427.nibbler.punit; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: edu.uiuc.cs427.nibbler.punit.PUnitPlugin
+Bundle-Vendor: Nibbler
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.junit;bundle-version="3.4.0",
+ edu.uiuc.cs427.nibbler.fruit.core;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.4.1",
+ org.eclipse.cdt.core;bundle-version="5.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.uiuc.cs427.nibbler.punit;uses:="org.eclipse.jface.resource,org.eclipse.ui.plugin,org.osgi.framework",
+ edu.uiuc.cs427.nibbler.punit.views;
+  uses:="org.eclipse.swt.graphics,
+   org.eclipse.jface.viewers,
+   org.eclipse.ui.part,
+   org.eclipse.swt.widgets"
+Import-Package: org.eclipse.debug.core,
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.internal.ui.viewsupport

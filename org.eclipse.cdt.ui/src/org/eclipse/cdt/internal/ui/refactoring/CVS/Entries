@@ -18,6 +18,7 @@
 D/dialogs////
 D/extractconstant////
 D/extractfunction////
+D/extractlocalvariable////
 D/gettersandsetters////
 D/hidemethod////
 D/implementmethod////

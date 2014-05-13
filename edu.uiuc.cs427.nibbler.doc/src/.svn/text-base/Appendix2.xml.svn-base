@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<appendix id="appendix2">
+	<title>Software User Guide</title>
+	<section id="FortranProjectCreation-ap2">
+		<title>Fortran Project Creation</title>
+		<para>
+			The Photran FRUIT plugin supports using normal Photran Fortran Projects.  
+			As a result the first step in using the FRUIT plugin is to create a Fortran 
+			Project in Eclipse.  After the project is created the following changes need 
+			to be made to support the building of FRUIT projects.
+		</para>
+		<orderedlist>
+			<listitem>
+				Under Project Properties > Fortran General > Paths and Symbols
+				<orderedlist>
+					<listitem>
+						Select Configuration "All Configurations"
+					</listitem>
+					<listitem>
+						Select the fortran files under languages (f,f90,f95,f03)
+					</listitem>
+					<listitem>
+						Then add a new include path. This will be a path to the fruit module files. In this case,
+						they are in the <filename>{cygwin_home_directory}\fruit_2.6\build</filename>.
+						<figure>
+							<title>The Include Paths Required for FRUIT</title>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="images/ap2-fruitIncludePath.jpeg" format="jpeg" /> 
+								</imageobject>
+							</mediaobject>
+						</figure>
+					</listitem>
+				</orderedlist>
+			</listitem>
+			<listitem>
+				Under Project Properties > Fortran Build > Settings
+				<orderedlist>
+					<listitem>
+						Select Configuration "All Configurations"
+					</listitem>
+					<listitem>
+						Select the libraries entry under Fortran Linker
+					</listitem>
+					<listitem>
+						In the Libraries (-l) window, create a new entry, place <code>fruit</code> in the text box
+					</listitem>
+					<listitem>
+						In the Library Search Path, create a new entry and place the path to <filename>libfruit.a</filename>,
+						in this case it is located in <filename>{cygwin_home_directory}\fruit_2.6\src</filename>
+						<figure>
+							<title>Configuring FRUIT libraries</title>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="images/ap2-fruitLibraries.jpeg" format="jpeg" /> 
+								</imageobject>
+							</mediaobject>
+						</figure>
+					</listitem>
+				</orderedlist>
+			</listitem>
+		</orderedlist>
+	</section>
+	<section id="CreatingATestCase-ap2">
+		<title>Creating a Test Case</title>
+		<para>
+			The Photran FRUIT plugin provides a means to create a skeleton test case file.  This is 
+			similar to the approach JUnit follows which provides a wizard to create a skeleton version 
+			of the test case.  This skeleton doesn’t provide any actual test case code, it is primarily 
+			used to provide the repetitive code that needs to be created for each test case.
+		</para>
+		<para>
+			To create a new test case a new entry under the File->New menu is provided under the 
+			Fortran/FRUIT subcategory.
+			<figure>
+				<title>Create a FRUIT test case</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/ap2-testCase1.jpeg" format="jpeg" /> 
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</para>
+		<para>
+			Upon selecting “New FRUIT Test Case” the user will be presented with a prompt to supply both 
+			the file containing the Module Under Test and the actual module name in that file.
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/ap2-testCase2.jpeg" format="jpeg" /> 
+				</imageobject>
+			</mediaobject>
+		</para>
+		<para>
+			Upon clicking “Finish” the skeleton file <filename>calculator_test.f90</filename> 
+			(or another f90 file named after the module under test) will be created and populated 
+			with a basic test case outline.
+		</para>
+	</section>
+	<section id="RunningFRUITTests-ap2">
+		<title>Running FRUIT Tests</title>
+		<para>
+			Once all the test cases are written, to run the test suite the user will right click on the 
+			Project and select “Run FRUIT Test”.  When “Run FRUIT Test” executes it performs several 
+			actions before finally displaying the results.  These steps are as follows:
+			<itemizedlist>
+				<listitem>
+					Update <filename>fruit_basket_gen.f90</filename> which contains the Fortran driver to run each 
+					FRUIT Test Case specified in the test files in the project.
+				</listitem>
+				<listitem>
+					Update <filename>fruit_test_driver.f90</filename> which contains the main Fortran program definition.
+				</listitem>
+				<listitem>
+					Add/Update a build configuration called “FRUIT”.  This build configuration selects just 
+					the test case files along with the files of the modules under test to be built.
+				</listitem>
+				<listitem>
+					Build the “FRUIT” Build Configuration.
+				</listitem>
+				<listitem>
+					Run the executable created by the “FRUIT” Build Configuration to generate the test case output.
+				</listitem>
+				<listitem>
+					Populate the PUnit View to display the “FRUIT” results.
+				</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			When FRUIT completes, the PUnit View will be displayed showing the results of each test 
+			case along with how many tests passed and failed.
+			<figure>
+				<title>The PUnit View Displaying Results</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/ap2-punitView.jpeg" format="jpeg" /> 
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</para>
+	</section>
+</appendix>

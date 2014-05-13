@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="edu.uiuc.cs427.nibbler.fruit.wizards"
+            name="FRUIT"
+            parentCategory="org.eclipse.photran.ui.newFortranWizards">
+      </category>
+      <wizard
+            name="New FRUIT Test Case"
+            icon="icons/sample.gif"
+            category="org.eclipse.photran.ui.newFortranWizards/edu.uiuc.cs427.nibbler.fruit.wizards"
+            class="edu.uiuc.cs427.nibbler.fruit.wizards.NewFRUITTestCaseWizard"
+            id="edu.uiuc.cs427.nibbler.fruit.wizards.wizards.NewFRUITTestCaseWizard">
+      </wizard>
+   </extension>
+
+</plugin>

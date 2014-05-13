@@ -1,0 +1,166 @@
+package edu.uiuc.cs427.nibbler.fruit.core.driverGenerator;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class DirectoryTree {
+
+	private Vector<FileWithTests> testFiles;
+	
+	public Vector<FileWithTests> getTestFiles () 
+	{ 
+		try
+		{
+			if (testFiles == null)
+				return testFiles;
+		}
+		catch (Exception ex)
+		{
+			return null;
+		}
+		return testFiles;
+	}
+	
+	public void build()
+	{
+		buildHelper(new File(System.getProperty("user.dir")));
+		removeDuplicates();
+	}
+	
+	public void build( File file )
+	{
+		buildHelper(file);
+		removeDuplicates();
+	}
+			
+	private void buildHelper (File file)
+	{
+		File f;
+		FileWithTests fwt;
+		File[] fList = file.listFiles();
+		String[] fNameArray;
+		for (int i = 0; i < fList.length; i++)
+		{
+			f = fList[i];
+			if (f.isDirectory())
+				this.buildHelper (f);
+			else if (f.isFile())
+			{
+				fNameArray = f.getName().split("\\.");
+			
+				if ((fNameArray.length > 1) && (fNameArray[fNameArray.length - 1 ].equalsIgnoreCase("f90")))
+				{
+					fwt = parseFile(f);
+					if (!(fwt == null))
+					{
+						if (testFiles == null)
+							testFiles = new Vector<FileWithTests>();
+						testFiles.add(fwt);
+					}
+				}
+			}
+		}
+	}
+	
+		/* 
+		 * It is expected that the file passed in has already been validated to be an
+		 * existing file and not a directory.  It is also expected that the file should be 
+		 * a Fortran source code file '.f90'.
+		 */
+	private FileWithTests parseFile (File file)
+	{
+		FileWithTests fwt = null;
+		try
+		{
+			/*
+			 * matches the name of the test subroutine
+			 */
+			Pattern pattern = Pattern.compile("^\\s+subroutine (test.+)$");
+			/*
+			 * matches the text of a test specification line
+			 */
+			Pattern specPattern = Pattern.compile("^.+ spec = \'\\b([\\w\\.\\s]+)\\b\\s?(\'|&)$");
+			Pattern specContinuedPattern = Pattern.compile("^\\s+\\b([\\w\\.\\s]+)\\b\\s?(\'|&)$");
+			Matcher m;
+			Matcher n;
+			Matcher o;
+			String currentTest = "";
+			boolean wasLineContinued = false;
+			String tempHolder = "";
+
+			int lineNumber = 0;
+			FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
+			DataInputStream dstream = new DataInputStream(fstream);
+			BufferedReader bReader =  new BufferedReader(new InputStreamReader(dstream));
+			String line;
+			while ((line = bReader.readLine())!= null)
+			{
+				lineNumber++;
+				if (line.equalsIgnoreCase(""))
+					continue;
+				m = pattern.matcher(line);
+				if (m.matches())
+				{
+					if (fwt == null)
+						fwt = new FileWithTests(file.getAbsolutePath());
+					fwt.addTest(m.group(1), lineNumber);
+					currentTest = m.group(1);
+				}
+				else
+				{
+					n = specPattern.matcher(line);
+					if (n.matches())
+					{
+						tempHolder = n.group(1);
+						if (n.group(2).equalsIgnoreCase("'"))
+						{
+							wasLineContinued = false;
+							fwt.addSpecToTest(currentTest, tempHolder);
+							currentTest = "";
+							tempHolder = "";
+						}
+						else if (n.group(2).equalsIgnoreCase("&"))
+						{
+							wasLineContinued = true;
+						}
+					}
+					else if (wasLineContinued)
+					{
+						o = specContinuedPattern.matcher(line);
+						if (o.matches())
+						{
+							tempHolder += " " + o.group(1).trim();
+							if (o.group(2).equalsIgnoreCase("'"))
+							{
+								wasLineContinued = false;
+								fwt.addSpecToTest(currentTest, tempHolder);
+								currentTest = "";
+								tempHolder = "";
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+		
+		}
+		return fwt;
+	}
+
+	private void removeDuplicates()
+	{
+		Collection<FileWithTests> uniques = new HashSet<FileWithTests>(testFiles);
+		testFiles.clear();
+		testFiles.addAll(uniques);
+	}
+}

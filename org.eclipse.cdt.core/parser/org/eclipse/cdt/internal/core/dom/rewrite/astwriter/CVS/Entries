@@ -1,0 +1,15 @@
+/ASTWriter.java/1.3/Fri May 30 11:13:27 2008//TCDT_5_0_0
+/ASTWriterVisitor.java/1.3/Fri May 30 11:13:27 2008//TCDT_5_0_0
+/ContainerNode.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0
+/DeclSpecWriter.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0
+/DeclarationWriter.java/1.5/Tue May 20 07:52:05 2008//TCDT_5_0_0
+/DeclaratorWriter.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0
+/ExpressionWriter.java/1.6/Fri Apr 11 06:50:42 2008//TCDT_5_0_0
+/InitializerWriter.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0
+/MacroExpansionHandler.java/1.3/Wed Apr 16 10:19:51 2008//TCDT_5_0_0
+/NameWriter.java/1.2/Wed Apr  9 11:46:21 2008//TCDT_5_0_0
+/NodeWriter.java/1.2/Wed Apr  9 11:46:21 2008//TCDT_5_0_0
+/ProblemRuntimeException.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0
+/Scribe.java/1.2/Wed Apr  9 11:46:21 2008//TCDT_5_0_0
+/StatementWriter.java/1.3/Wed Apr  9 15:48:37 2008//TCDT_5_0_0
+/TemplateParameterWriter.java/1.2/Wed Apr  9 11:46:22 2008//TCDT_5_0_0

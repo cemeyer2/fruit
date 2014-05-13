@@ -1,0 +1,220 @@
+package edu.uiuc.cs427.nibbler.fruit.core.parser;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+
+import edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.DirectoryTree;
+import edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.FileWithTests;
+
+public class FruitParser {
+	/*
+	 * identifies the start of a test module
+	 */
+	Pattern testStartPattern = Pattern.compile("^\\s+Test module initialized$");
+	/*
+	 * identifies the end of a test module
+	 */
+	Pattern testEndPattern = Pattern.compile("^[\\s, -]+end of FRUIT summary$");
+	/*
+	 * identifies the success or failure of an assertion FRUIT outputs 'F' if the assertion failed or '.' if succeeded.
+	 */
+	Pattern successOrFailure = Pattern.compile("^(F|\\.).*$");
+	/*
+	 * matches the text of an assertion failure message
+	 */
+	Pattern testAssertionMessage = Pattern.compile("^\\[([\\s, \\S]+)\\]: Expected \\[([\\s, \\S]+)\\], Got \\[([\\s, \\S]+)\\]$");
+	/*
+	 * matches the start of a new test being run
+	 */
+	Pattern runningTest = Pattern.compile("^.+\\.\\.running test\\: (\\w+)$");
+	
+	Map<String,FruitAssertionMessage> errorMap = new HashMap<String, FruitAssertionMessage>();
+	private long testStartTime;
+	private long testEndTime;
+	private String currentTestName;
+
+	
+	public FruitParser ()
+	{
+		testStartTime = 0;
+		testEndTime = 0;
+		currentTestName = "";
+	}
+	
+	public FruitParser(File file) throws IOException
+	{
+		this();
+		BufferedReader in = new BufferedReader(new FileReader(file.getCanonicalPath()));
+		String line = "";
+		while((line = in.readLine())!= null)
+		{
+			parseLine(line);
+		}
+		in.close();
+	}
+	
+	public int getNumberOfAssertions()
+	{
+		return errorMap.size();
+	}
+	public int getNumberOfFailedAssertions()
+	{
+		int numFailures = 0;
+		for (FruitAssertionMessage msg : errorMap.values())
+		{
+			if (msg.isFailure())
+				numFailures++;
+		}
+		return numFailures;
+	}
+	
+	public Map<String, FruitAssertionMessage> getFailedTests()
+	{
+		Map<String, FruitAssertionMessage> failures = new HashMap<String, FruitAssertionMessage>();
+		for (FruitAssertionMessage msg : errorMap.values())
+		{
+			if (msg.isFailure())
+			{
+				failures.put(msg.getTestName(), msg);
+			}
+		}
+		return failures;
+	}
+	
+	public Map<String, FruitAssertionMessage> getAllTests()
+	{
+		return errorMap;
+	}
+	
+	public float getElapsedTime()
+	{
+		return ((testEndTime - testStartTime) / 1000F);
+	}
+	private void addTestToMap (String name)
+	{
+		FruitAssertionMessage msg = new FruitAssertionMessage();
+		msg.setTestName(name);
+		msg.setStartTime(System.currentTimeMillis());
+		errorMap.put(name, msg);
+		currentTestName = name;
+	}
+	
+	public boolean parseLine(String line)
+	{
+		Matcher m = testStartPattern.matcher(line);
+		if (m.matches())
+		{
+			testStartTime = System.currentTimeMillis();
+			return true;
+		}
+		m = testEndPattern.matcher(line);
+		if (m.matches())
+		{
+			testEndTime = System.currentTimeMillis();
+			return true;
+		}
+		m = successOrFailure.matcher(line);
+		if (m.matches())
+		{
+			if (currentTestName.length() > 0)
+			{
+				errorMap.get(currentTestName).setEndTime(System.currentTimeMillis());
+				if (m.group(1).equalsIgnoreCase("F"))
+				{
+					errorMap.get(currentTestName).setFailure(true);
+				}
+				currentTestName = "";
+			}
+		}
+		m = runningTest.matcher(line);
+		if (m.matches())
+		{
+			addTestToMap(m.group(1));
+			return true;
+		}
+		m = testAssertionMessage.matcher(line);
+		if (m.matches())
+		{
+			if (errorMap.containsKey(m.group(1)))
+			{
+				if (errorMap.get(m.group(1)).isFailure())
+				{
+					errorMap.get(m.group(1)).setExpectedValue(m.group(2));
+					errorMap.get(m.group(1)).setActualValue(m.group(3));
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+
+	public static boolean deleteFruitMarkers(IProject project)
+	{
+		try
+		{
+			project.deleteMarkers("fruitTestFailureMarker", false, IResource.DEPTH_INFINITE);
+			return true;
+		}
+		catch (CoreException e)
+		{
+			return false;
+		}
+	}
+	
+	public void setFruitMarkers(IProject project)
+	{
+		deleteFruitMarkers(project);
+		Vector <FileWithTests> fwt;
+		DirectoryTree myTree = new DirectoryTree();
+		myTree.build(project.getLocation().toFile());
+		fwt = myTree.getTestFiles();
+		IWorkspace workspace= ResourcesPlugin.getWorkspace(); 
+		IPath fPath; 
+		IFile file; 
+		for (FruitAssertionMessage msg : getFailedTests().values())
+		{
+			for (FileWithTests fwTest : fwt)
+			{
+				if (fwTest.contains(msg.getTestName()))
+				{
+					fPath = Path.fromOSString(fwTest.getPath());
+					file = workspace.getRoot().getFileForLocation(fPath);
+					setMarker (file, msg.getMessage(), fwTest.getTestLineNumber(msg.getTestName()));
+				}
+			}
+		}
+	}
+	
+	private void setMarker(IFile file, String message, int lineNumber)
+	{
+		try
+		{
+			IMarker	marker = file.createMarker("fruitTestFailureMarker");
+			marker.setAttribute(IMarker.MESSAGE, message);
+			marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);
+			marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+		}
+		catch (CoreException e)
+		{
+			
+		}
+	}
+}

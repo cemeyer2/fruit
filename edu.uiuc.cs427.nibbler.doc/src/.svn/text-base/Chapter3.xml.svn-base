@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="chapter3">
+	<title>Project Postmortem</title>
+	<section id="FuturePlans-ch3">
+		<title>Future Plans</title>
+		<para>
+		  Currently CS427 Team Nibbler has no future plans for this project.  With additional testing and code cleanup 
+		  there is a possibility that it could be used within Photran.  For this project to actually be used with Photran
+		  several design decisions would most likely need to be analyzed to see if the choices that were made by Team
+		  Nibbler will actually fit within the model that is provided within Photran.  The primary issues that would need to be
+		  analyzed are
+		  <itemizedlist>
+		      <listitem>
+		          Use of Build Configurations to support building FRUIT application
+		      </listitem>
+		      <listitem>
+		          Better integration of FRUIT distribution into Photran
+		      </listitem>
+		      <listitem>
+		          Decision to parse fruit output.  Integration with the FRUIT project would potentially
+		          allow a more stable output format.
+		      </listitem>
+		  </itemizedlist>
+		</para>
+	</section>
+	<section id="TeamMemberReflections-ch3">
+		<title>Team Member Reflections</title>
+		<section id="DaveBuhl-ch3">
+			<title>Dave Buhl</title>
+		</section>
+		<section id="AnthonyGelsomini-ch3">
+			<title>Anthony Gelsomini</title>
+		</section>
+		<section id="PatGuelah-ch3">
+			<title>Pat Guelah</title>
+		</section>
+		<section id="CharlieMeyer-ch3">
+			<title>Charlie Meyer</title>
+		</section>
+	</section>
+</chapter>

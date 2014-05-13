@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="chapter1">
+	<title>Overview</title>
+	<para>
+		FRUIT is an unit testing framework designed for the Fortran Programming Language.  
+		FRUIT is based up on the xUnit style of unit testing as typified by JUnit.  The 
+		purpose of the Unit Testing with FRUIT CS427 Final Project is to integrate to the 
+		FRUIT testing framework with the Photran Fortran IDE that is implemented as part 
+		of Eclipse.
+	</para>
+	<para>
+		The prototype example implementation developed over the course of this project uses 
+		the Eclipse JUnit implementation as a reference implementation of a unit testing 
+		framework in Eclipse.  Wherever possible the FRUIT UI and usage will be modeled on 
+		the JUnit implementation.
+	</para>
+	<section id="Definitions-ch1">
+		<title>Definitions</title>
+		<orderedlist>
+			<listitem>
+				<emphasis>FRUIT</emphasis> -- a unit testing framework for Fortran programs, modeled after the xUnit family.
+			</listitem>
+		</orderedlist>
+	</section>
+	<section id="References-ch1">
+		<title>References</title>
+		<orderedlist>
+		  <listitem>		  
+             <ulink url="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project
+">
+                        <citetitle>
+              Photran Developer Guide
+                        </citetitle>
+                    </ulink>
+		  </listitem>
+		</orderedlist>
+	</section>
+</chapter>

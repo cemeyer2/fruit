@@ -1,0 +1,24 @@
+/IArchiveTarget.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IBadDirective.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/ICommand.java/1.8/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IComment.java/1.8/Fri Jun 23 17:52:23 2006//TCDT_5_0_0
+/IDefaultRule.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/IDirective.java/1.8/Wed Apr  2 10:37:56 2008//TCDT_5_0_0
+/IEmptyLine.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IIgnoreRule.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/IInferenceRule.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IMacroDefinition.java/1.7/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IMakefile.java/1.11/Tue Apr  8 21:50:33 2008//TCDT_5_0_0
+/IMakefileReaderProvider.java/1.2/Wed Jun 11 15:49:11 2008//TCDT_5_0_0
+/IMakefileValidator.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/IParent.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IPosixRule.java/1.5/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/IPreciousRule.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/IRule.java/1.7/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/ISccsGetRule.java/1.5/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/ISilentRule.java/1.5/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/ISpecialRule.java/1.5/Fri Jun 23 17:52:25 2006//TCDT_5_0_0
+/ISuffixesRule.java/1.5/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/ITarget.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+/ITargetRule.java/1.6/Fri Jun 23 17:52:24 2006//TCDT_5_0_0
+D/gnu////

@@ -1,0 +1,89 @@
+8
+
+dir
+7797
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-11T17:38:07.844413Z
+7693
+gelsomi1
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+.classpath
+file
+
+
+
+
+2008-12-09T18:58:56.062000Z
+a8459ded9c43bac1ab60e929f7330865
+2008-10-26T19:41:09.556867Z
+5970
+gelsomi1
+has-props
+
+.project
+file
+
+
+
+
+2008-12-09T18:58:56.218000Z
+0bfe17d438f59dbed498b163d52c138d
+2008-10-26T19:41:09.556867Z
+5970
+gelsomi1
+has-props
+
+.settings
+dir
+
+META-INF
+dir
+
+build.properties
+file
+
+
+
+
+2008-12-09T18:58:56.812000Z
+1dd5769f07ee00c38afe75660f610ffe
+2008-10-26T19:41:09.556867Z
+5970
+gelsomi1
+has-props
+
+plugin.xml
+file
+
+
+
+
+2008-12-09T18:58:56.828000Z
+3876ead277846935195c72d0a07ae4dd
+2008-12-07T18:41:10.677266Z
+7356
+gelsomi1
+has-props
+
+src
+dir
+

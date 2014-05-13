@@ -1,0 +1,54 @@
+8
+
+dir
+7797
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/trunk/edu.uiuc.cs427.nibbler.fruit.core/src/edu/uiuc/cs427/nibbler/fruit/core/parser
+https://csil-projects.cs.uiuc.edu/svn/fa08/cs427
+
+
+
+2008-12-04T18:47:43.670609Z
+7219
+cemeyer2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6bfe4938-c14f-44cf-b9bb-2ccfcbc6059d
+
+FruitAssertionMessage.java
+file
+
+
+
+
+2008-12-09T18:58:56.625000Z
+0e5656eb0d5eb61442d909dc06f3af98
+2008-12-01T20:55:50.437566Z
+7021
+buhl1
+has-props
+
+FruitParser.java
+file
+
+
+
+
+2008-12-09T18:58:56.640000Z
+b13640ac9112419bda47170ab84ff936
+2008-12-04T18:47:43.670609Z
+7219
+cemeyer2
+has-props
+

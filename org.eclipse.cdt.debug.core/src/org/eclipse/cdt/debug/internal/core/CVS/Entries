@@ -1,0 +1,20 @@
+/CBreakpointManager.java/1.91/Wed Jun 11 13:36:40 2008//TCDT_5_0_0
+/CBreakpointNotifier.java/1.6/Fri Jun 23 17:52:38 2006//TCDT_5_0_0
+/CDebugAdapter.java/1.7/Thu Jun 23 16:01:15 2005//TCDT_5_0_0
+/CDebugCorePreferenceInitializer.java/1.4/Sat Oct 27 17:48:36 2007//TCDT_5_0_0
+/CDisassemblyContextProvider.java/1.2/Wed Apr 16 17:10:57 2008//TCDT_5_0_0
+/CGlobalVariableManager.java/1.8/Thu Jun 14 18:19:40 2007//TCDT_5_0_0
+/CMemoryBlockRetrievalExtension.java/1.18/Wed May 21 20:41:47 2008//TCDT_5_0_0
+/CRegisterManager.java/1.18/Fri Sep  9 21:34:32 2005//TCDT_5_0_0
+/CSettingsManager.java/1.1/Fri Jan  4 22:20:52 2008//TCDT_5_0_0
+/CSignalManager.java/1.13/Thu Jun 23 16:01:15 2005/-ko/TCDT_5_0_0
+/DebugConfiguration.java/1.24/Fri Oct 19 18:57:21 2007/-ko/TCDT_5_0_0
+/ICDebugInternalConstants.java/1.5/Thu Jun 23 16:01:15 2005/-ko/TCDT_5_0_0
+/InternalDebugCoreMessages.java/1.5/Fri Jun 23 17:52:38 2006//TCDT_5_0_0
+/InternalDebugCoreMessages.properties/1.18/Tue Apr 22 15:25:34 2008//TCDT_5_0_0
+/ListenerList.java/1.6/Fri Jun 23 17:26:25 2006//TCDT_5_0_0
+/SessionManager.java/1.5/Thu Jun 23 16:01:15 2005//TCDT_5_0_0
+D/breakpoints////
+D/disassembly////
+D/model////
+D/sourcelookup////

@@ -1,0 +1,22 @@
+package edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.tests;
+
+import java.io.File;
+
+import edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.FruitGen;
+
+import junit.framework.TestCase;
+
+public class FruitDriverGenerationTests extends TestCase {
+
+	public void testGenerateFruitDriver ()
+	{
+		FruitGen fruitGenerator = new FruitGen();
+		fruitGenerator.generateFruitDriver();
+		File driverFile = new File(System.getProperty("user.dir") + File.pathSeparator + "project_test_driver.f90");
+		File fruitBasketGen = new File (System.getProperty("user.dir") + File.pathSeparator + "fruit_basket_gen.f90");
+		assertTrue(driverFile.exists());
+		assertTrue(fruitBasketGen.exists());
+		assertTrue(driverFile.length() >= 7);
+		assertTrue(fruitBasketGen.length() >= 9);
+	}
+}

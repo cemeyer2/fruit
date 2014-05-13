@@ -1,0 +1,14 @@
+/BuildCdtVariablesSupplierBase.java/1.1/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/BuildMacro.java/1.3/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/BuildMacroProvider.java/1.9/Fri May 18 17:52:42 2007//TCDT_5_0_0
+/BuildMacroStatus.java/1.3/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/BuildfileMacroSubstitutor.java/1.6/Fri Jun 15 14:27:56 2007//TCDT_5_0_0
+/CoreMacrosSupplier.java/1.1/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/DefaultMacroContextInfo.java/1.7/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/ExplicitFileMacroCollector.java/1.4/Tue Apr 29 16:53:07 2008//TCDT_5_0_0
+/FileContextBuildMacroValues.java/1.3/Fri May 26 16:34:09 2006//TCDT_5_0_0
+/FileContextData.java/1.2/Mon Jun 20 20:52:52 2005//TCDT_5_0_0
+/IMacroContextInfo.java/1.3/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/IMacroContextInfoProvider.java/1.1/Tue Feb 20 17:23:19 2007//TCDT_5_0_0
+/MbsMacroSupplier.java/1.22/Tue Apr 29 16:53:07 2008//TCDT_5_0_0
+/OptionContextData.java/1.7/Thu Jun 14 19:08:49 2007//TCDT_5_0_0

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/fa08/cs427/!svn/ver/7209/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/icons/full/ovr16
+END
+error_ovr.gif
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/fa08/cs427/!svn/ver/7209/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/icons/full/ovr16/error_ovr.gif
+END
+success_ovr.gif
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/fa08/cs427/!svn/ver/7209/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/icons/full/ovr16/success_ovr.gif
+END
+failed_ovr.gif
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/fa08/cs427/!svn/ver/7209/Nibbler/trunk/edu.uiuc.cs427.nibbler.punit/icons/full/ovr16/failed_ovr.gif
+END

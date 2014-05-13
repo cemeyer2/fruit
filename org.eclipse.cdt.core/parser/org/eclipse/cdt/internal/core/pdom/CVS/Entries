@@ -1,0 +1,29 @@
+/ASTFilePathResolver.java/1.3/Tue Apr  8 06:37:55 2008//TCDT_5_0_0
+/AbstractIndexerTask.java/1.15/Fri May 16 17:10:36 2008//TCDT_5_0_0
+/CModelListener.java/1.9/Wed Apr  9 11:35:52 2008/-kk/TCDT_5_0_0
+/CProjectDescriptionListener.java/1.4/Thu Feb 14 08:39:37 2008/-kk/TCDT_5_0_0
+/Checksums.java/1.3/Thu Apr 10 10:03:29 2008/-kk/TCDT_5_0_0
+/IPDOM.java/1.1/Fri Jul  6 13:40:14 2007//TCDT_5_0_0
+/ITodoTaskUpdater.java/1.1/Wed May 30 11:03:29 2007//TCDT_5_0_0
+/IndexUpdatePolicy.java/1.4/Mon Feb 18 10:49:08 2008/-kk/TCDT_5_0_0
+/IndexerInputAdapter.java/1.1/Fri Dec  7 10:33:29 2007//TCDT_5_0_0
+/IndexerProgress.java/1.4/Tue Feb 19 12:22:10 2008/-kk/TCDT_5_0_0
+/IndexerStatistics.java/1.2/Fri Feb 15 10:41:25 2008//TCDT_5_0_0
+/JobChangeListener.java/1.1/Wed Feb 27 10:48:49 2008//TCDT_5_0_0
+/LanguageMappingChangeListener.java/1.4/Tue Apr 24 13:23:11 2007//TCDT_5_0_0
+/Messages.java/1.16/Fri May 23 08:47:27 2008/-kk/TCDT_5_0_0
+/PDOM.java/1.108/Thu May 29 12:38:27 2008//TCDT_5_0_0
+/PDOMFileSet.java/1.1/Fri Jan 25 17:00:38 2008//TCDT_5_0_0
+/PDOMIndexerJob.java/1.19/Wed Apr  9 11:35:52 2008//TCDT_5_0_0
+/PDOMLanguage.java/1.6/Fri Jun 23 17:27:02 2006//TCDT_5_0_0
+/PDOMManager.java/1.98/Thu May  8 09:41:13 2008//TCDT_5_0_0
+/PDOMProxy.java/1.9/Fri Mar 28 17:59:05 2008//TCDT_5_0_0
+/PDOMWriter.java/1.27/Fri May 16 17:10:36 2008/-kk/TCDT_5_0_0
+/TeamPDOMExportOperation.java/1.6/Fri Dec  7 10:33:29 2007/-kk/TCDT_5_0_0
+/TeamPDOMImportOperation.java/1.9/Fri Apr  4 17:48:26 2008/-kk/TCDT_5_0_0
+/WritablePDOM.java/1.26/Thu Apr 17 12:27:47 2008/-kk/TCDT_5_0_0
+D/db////
+D/dom////
+D/export////
+D/indexer////
+/messages.properties/1.16/Fri May 23 08:47:27 2008/-kk/TCDT_5_0_0

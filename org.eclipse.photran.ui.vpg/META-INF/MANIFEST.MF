@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Photran Virtual Program Graph UI Plug-in
+Bundle-SymbolicName: org.eclipse.photran.ui.vpg;singleton:=true
+Bundle-Version: 4.0.4
+Bundle-Activator: org.eclipse.photran.ui.vpg.Activator
+Bundle-Vendor: University of Illinois at Urbana-Champaign and Los Alamos National Laboratory
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.photran.ui,
+ org.eclipse.photran.core.vpg,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.editors,
+ org.eclipse.jface.text,
+ org.eclipse.ltk.core.refactoring,
+ org.eclipse.ltk.ui.refactoring,
+ org.eclipse.photran.core,
+ org.eclipse.cdt.core,
+ org.eclipse.search,
+ org.eclipse.cdt.ui,
+ org.eclipse.photran.cdtinterface
+Eclipse-LazyStart: true
+Export-Package: org.eclipse.photran.internal.refactoring.ui,
+ org.eclipse.photran.internal.ui.actions,
+ org.eclipse.photran.internal.ui.properties,
+ org.eclipse.photran.ui.vpg

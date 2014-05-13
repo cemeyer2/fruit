@@ -1,0 +1,20 @@
+/CDIDebugModel.java/1.36/Fri May  9 09:37:08 2008//TCDT_5_0_0
+/CDebugCorePlugin.java/1.35/Wed Apr  2 16:20:21 2008/-ko/TCDT_5_0_0
+/CDebugUtils.java/1.27/Thu May  8 03:16:26 2008//TCDT_5_0_0
+/DebugCoreMessages.java/1.5/Fri Jun 23 17:52:38 2006//TCDT_5_0_0
+/DebugCoreMessages.properties/1.12/Thu May  8 03:16:26 2008//TCDT_5_0_0
+/ICBreakpointListener.java/1.7/Fri Jun 23 17:52:38 2006//TCDT_5_0_0
+/ICDIDebugger.java/1.5/Fri Jun 23 17:26:24 2006//TCDT_5_0_0
+/ICDIDebugger2.java/1.2/Fri Jun 23 17:26:24 2006//TCDT_5_0_0
+/ICDTLaunchConfigurationConstants.java/1.27/Fri Jan  4 22:20:52 2008//TCDT_5_0_0
+/ICDebugConfiguration.java/1.14/Thu Jun 14 18:19:40 2007/-ko/TCDT_5_0_0
+/ICDebugConstants.java/1.16/Thu Apr  3 17:06:41 2008/-ko/TCDT_5_0_0
+/ICDebugger.java/1.7/Fri Jun 23 17:52:38 2006/-ko/TCDT_5_0_0
+/ICGlobalVariableManager.java/1.4/Thu Jun 23 16:01:15 2005//TCDT_5_0_0
+D/breakpointactions////
+D/cdi////
+D/disassembly////
+D/executables////
+D/internal////
+D/model////
+D/sourcelookup////

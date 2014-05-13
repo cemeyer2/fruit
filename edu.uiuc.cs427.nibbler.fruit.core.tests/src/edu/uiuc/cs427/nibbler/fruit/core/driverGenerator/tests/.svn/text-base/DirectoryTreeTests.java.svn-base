@@ -1,0 +1,14 @@
+package edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.tests;
+
+import edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.DirectoryTree;
+import junit.framework.TestCase;
+
+public class DirectoryTreeTests extends TestCase {
+
+	public void testBuild()
+	{
+		DirectoryTree myTree = new DirectoryTree();
+		myTree.build();
+		assertTrue(myTree.getTestFiles().size() == 2);
+	}
+}

@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<appendix id="appendix1">
+	<title>Software Installation</title>
+	<para>
+		The Nibbler FRUIT plugins for Eclipse are designed and tested for use under Windows XP 
+		with Cygwin providing the required Unix compatibility layer.  The installation instructions 
+		provided are targeted at this environment.
+	</para>
+	<section id="Requirements-ap1">
+		<title>Requirements</title>
+		<itemizedlist>
+			<listitem>
+				Eclipse 3.4 Distribution for Plug-in Developers
+				<itemizedlist>
+					<listitem>CDT Version 5.0.0 Sources</listitem>
+					<listitem>Photran HEAD Sources</listitem>
+					<listitem>Nibbler Sources</listitem>
+				</itemizedlist>
+			</listitem>
+			<listitem>Cygwin</listitem>
+			<listitem>GFortran for Cygwin 2008-11-18</listitem>
+			<listitem>FRUIT 2.6</listitem>
+			<listitem>Ruby Gems</listitem>
+		</itemizedlist>
+	</section>
+	<section id="Installation-ap1">
+		<title>Installation</title>
+		<section id="EclipseInstallation-ap1">
+			<title>Eclipse 3.4 Distribution for Plug-in Developers</title>
+			<orderedlist>
+				<listitem>
+					Download Eclipse 3.4 For Plug-in Developers from 
+					<ulink url="http://www.eclipse.org/downloads/packages/eclipse-rcpplug-developers/ganymeder">
+						<citetitle>
+							http://www.eclipse.org/downloads/packages/eclipse-rcpplug-developers/ganymeder
+						</citetitle>
+					</ulink>
+				</listitem>
+				<listitem>
+					Eclipse doesn’t provide an installer.  Once uncompressed the files can be stored anywhere on 
+					the system.  To run Eclipse, the user needs to launch the Eclipse.exe binary inside the 
+					uncompressed Eclipse directory.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="CDTAndPhotranSources-ap1">
+			<title>CDT and Photran Sources</title>
+			<orderedlist>
+				<listitem>
+					To install the CDT and Photran Sources follow the detailed instructions provided in Appendix 
+					A of the Photran Developers Guide available at:
+					<ulink url="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project">
+						<citetitle>
+							http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/org.eclipse.photran/org.eclipse.photran-dev-docs/dev-guide/dev-guide.pdf?cvsroot=Technology_Project
+						</citetitle>
+					</ulink>
+				</listitem>
+				<listitem>
+					One deviation from the directions provided with Photran is that instead of using the 
+					CDT_5_0 branch, the user should use the CDT_5_0_0 tag as this tag point is the one that 
+					is compatible with the version of Photran in the HEAD branch.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="NibblerSources-ap1">
+		  <title>Nibbler Project Sources</title>
+		    <orderedlist> 
+		        <listitem>
+		          Checkout the sources from the CS427 Subversion repository at the FinalSubmission tag:
+		          <ulink url="https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/tags/FinalSubmission">
+		                <citetitle>
+                            https://csil-projects.cs.uiuc.edu/svn/fa08/cs427/Nibbler/tags/FinalSubmission
+                        </citetitle>
+		          </ulink>     
+		            The required packages are:
+                  <itemizedlist>
+                    <listitem>
+                        edu.uiuc.cs427.nibbler.fruit.core
+                    </listitem>
+                    <listitem>
+                        edu.uiuc.cs427.nibbler.fruit.tests
+                    </listitem>
+                    <listitem>
+                        edu.uiuc.cs427.nibbler.fruit.wizards
+                    </listitem>
+                    <listitem>
+                        edu.uiuc.cs427.nibbler.punit
+                    </listitem>
+                  </itemizedlist>
+                </listitem>
+            </orderedlist>
+		</section>
+		<section id="Cygwin-ap1">
+			<title>Cygwin</title>
+			<orderedlist>
+				<listitem>
+					To install Cygwin, download the latest version of Cygwin from 
+					<ulink url="http://www.cygwin.com/setup.exe">
+						<citetitle>
+							http://www.cygwin.com/setup.exe
+						</citetitle>
+					</ulink>
+					. Once downloaded, run the executable <filename>setup.exe</filename>.
+				</listitem>
+				<listitem>
+					Select all of the "Base" utilites by clicking on the word "Default" next to Base until
+					it shows "Install".
+					<figure>
+						<title>Cygwin Install Screen</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap1-installCygwin.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</listitem>
+				<listitem>
+					Select the following "Developer" utilities: <emphasis>autoconf</emphasis>, 
+					<emphasis>automake</emphasis>, <emphasis>binutils</emphasis>, 
+					<emphasis>gcc</emphasis>, <emphasis>gdb</emphasis>,
+					<emphasis>make</emphasis>, and <emphasis>libtool</emphasis> by exapanding the "Devel"
+					category and selecting the checkboxes next to each of the mentioned packages.
+				</listitem>
+				<listitem>
+					Change Category to "Full", by clicking on the button that displays "View" to the
+					left of the category until the button displays "Full".
+				</listitem>
+				<listitem>
+					Select <emphasis>gmp</emphasis>, <emphasis>mpfr</emphasis>, and <emphasis>ruby</emphasis> 
+					by selecting the checkboxes next to each of the mentioned packages.
+				</listitem>
+				<listitem>
+					The installation can now be completed by selecting "Next" repeatedly until the
+					installation completes.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="GFortran-ap1">
+			<title>GFortran</title>
+			<orderedlist>
+				<listitem>
+					Download the gfortran archive from 
+					<ulink url="http://gcc.gnu.org/wiki/GFortranBinaries">
+						<citetitle>
+							GFortran
+						</citetitle>
+					</ulink> by clicking the "here" link in the Windows Cygwin section and then save the
+					file in your <filename>{cygwin_install_directory}\home\{user_name}</filename> directory.
+				</listitem>
+				<listitem>
+					Open a Cygwin shell and make sure that you are in your home directory by typing the command: 
+					<code>cd ~</code> at the prompt.
+				</listitem>
+				<listitem>
+					Ensure the gfortran archive is in your directory by using the command <code>ls</code> at the
+					prompt. You should see a list of the files in the directory printed to the console. One of 
+					them should be named similarly to <filename>gfortran-4.4-Cygwin-i686.tar.bz2</filename>
+				</listitem>
+				<listitem>
+					Extract and install gfortran by using the command <code>tar -xjvf gfortran-4.4-Cygwin-i686.tar.bz2 -C /</code> 
+					Do not forget the trailing slash. Also, this command is case sensitive and you will need to replace the filename
+					given in the sample command with the name of the file that you actually downloaded.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="SettingUpEnvironmentVariablesWindows-ap1">
+			<title>Setting up Environment Variables (Windows)</title>
+			<orderedlist>
+				<listitem>
+					Cygwin does not put itsself on the Windows path. You need to add it to the PATH environment
+					variable. Go to Control Panel > System. Click on the Advanced tab, then click on the
+					Environment Variables button. Go to the System Variables section. Look for PATH, select it,
+					and click edit. Prepend <code>C:\{cygwin_install_dir}\usr\local\gfortran\bin;C:\{cygwin_install_dir}\cygwin\bin;</code> 
+					to the path. Remember that paths are separated by <code>;</code>, so do not leave them out. Double
+					check that there are not any trailing or dangling symbols, etc. Also, replace <code>{cygwin_install_dir}</code> with
+					the location you installed Cygwin.
+				</listitem>
+				<listitem>
+					You will need to restart Windows before Eclipse will recognize the new PATH.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="SettingUpEnvironmentVariablesCygwin-ap1">
+			<title>Setting Up Environment Variables (Cygwin)</title>
+			<orderedlist>
+				<listitem>
+					Open a Cygwin bash shell.
+				</listitem>
+				<listitem>
+					Edit the file <filename>.bash_profile</filename> in your home direcotry with your
+					favorite text editor.
+				</listitem>
+				<listitem>
+					Add <code>PATH=/usr/local/gfortran/bin:${PATH}</code> to the end of the file. Note the
+					direction of the slashes and remember that this is case sensitive. Save and close the file.
+				</listitem>
+				<listitem>
+					If you used a Windows editor to change <filename>.bash_profile</filename> such as Notepad
+					or Wordpad, you will need to eliminate the carriage returns that Windows editors put
+					into files. Use the command <code>dos2unix .bash_profile</code>
+				</listitem>
+				<listitem>
+					Close your shell and then open a new one to load the new PATH.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="RubyGems-ap1">
+			<title>Ruby Gems</title>
+			<orderedlist>
+				<listitem>
+					Download the latest ruby gems archive from 
+					<ulink url="http://rubyforge.org/frs/?group_id=126">
+						<citetitle>
+							Gems
+						</citetitle> 
+					</ulink> and save it to your home directory in Cygwin.
+				</listitem>
+				<listitem>
+					Expand the archive by issuing the command <code>tar -xvf rubygems-1.3.1.tgz</code> using
+					the filename that you downloaded in place of <code>rubygems-1.3.1.tgz</code>
+				</listitem>
+				<listitem>
+					Change to the directory that contains the file <filename>setup.rb</filename> which should
+					be in the root directory named for the archive, in this case <filename>rubygems-1.3.1</filename>
+				</listitem>
+				<listitem>
+					Install ruby gems by issuing the command <code>ruby setup.rb install</code>
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="FRUIT-ap1">
+			<title>FRUIT</title>
+			<orderedlist>
+				<listitem>
+					Download the latest version of FRUIT from 
+					<ulink url="http://sourceforge.net/projects/fortranxunit">
+						<citetitle>
+							http://sourceforge.net/projects/fortranxunit
+						</citetitle>
+					</ulink> and save it in your Cygwin home directory.
+				</listitem>
+				<listitem>
+					Unzip the archive by issuing the command <code>unzip fruit_2.6.zip</code> replacing
+					<code>fruit_2.6.zip</code> with the name of the file that you downloaded.
+				</listitem>
+				<listitem>
+					Change into the directory created, in this case <code>cd fruit_2.6</code>
+				</listitem>
+				<listitem>
+					Make the following edits to the <filename>rake_base.rb</filename> in the <filename>fruit_2.6</filename> directory:
+					<orderedlist>
+						<listitem>
+							Change <code>$compiler='ifort'</code> to <code>$compiler='gfortran'</code>
+						</listitem>
+						<listitem>
+							change <code>sh "#{$compiler} -g -debug inline_debug_info -c -o #{t.name} #{t.source}
+							-module #{$build_dir} #{FruitProcessor.new.inc_flag($inc_dirs)}"</code> to read
+							<code>sh "#{$compiler} -g -c -o #{t.name} #{t.source} -J #{$build_dir} 
+							#{FruitProcessor.new.inc_flag($inc_dirs)}"</code> Note how the <code>-debug</code>
+							option was removed and the <code>-module</code> option is replaced by <code>-J</code>
+						</listitem>
+					</orderedlist>
+				</listitem>
+				<listitem>
+					Next, you have to make some small changes to the <filename>fruit.f90</filename> file in the
+					<filename>src</filename> directory in order for fruit to compile with gfortran. There are
+					two function delarations in the file that you must add <code>()</code> to. The first is 
+					<code>function get_last_message</code> should be changed to <code>function get_last_message()</code>
+					and <code>function is_last_passed</code> should be changed to <code>function is_last_passed()</code>
+				</listitem>
+				<listitem>
+					Install the Rake Gem using the command <code>sudo gem install rake</code>
+				</listitem>
+				<listitem>
+					Change to the <filename>fruit_processor_gem</filename> directory and then issue the command 
+					<code>sudo rake install</code> to install the fruit processor gem.
+				</listitem>
+				<listitem>
+					In the fruit directory, run <code>rake clobber</code> and then <code>rake</code> in build FRUIT.
+				</listitem>
+			</orderedlist>
+		</section>
+		<section id="Nibbler-ap1">
+			<title>Nibbler Code</title>
+			<para id="Subverse-ap1">
+				The following instructions on how to download the Nibbler code into your workspace assume you have the Subversive
+				Eclipse plugin installed. If you do not have it installed, please see the instructions at 
+				<ulink url="http://www.eclipse.org/subversive/">
+					<citetitle>
+						the Subversive web page
+					</citetitle>
+				</ulink>. We also assume that your UIUC netid has access to the Nibbler SVN repository. Please contact TSG if 
+				you need to be given access to the repository.
+			</para>
+			<orderedlist>
+				<listitem>
+					Make sure you are in the same workspace where you checked out the CDT and Photran source code.
+				</listitem>
+				<listitem>
+					Select File > New > Other... > Expand the SVN Folder > New Repository Location
+					<figure>
+						<title>New Repository Location</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap1-installNibbler1.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</listitem>
+				<listitem>
+					Fill in the the information as follows:
+					<itemizedlist>
+						<listitem><emphasis>URL</emphasis> - <filename>https://csil-projects.cs.uiuc.edu/svn/fa08/Nibbler</filename></listitem>
+						<listitem><emphasis>Label</emphasis> - Select "Use the repository URL as the label</listitem>
+						<listitem><emphasis>User</emphasis> - Your UIUC netid</listitem>
+						<listitem><emphasis>Password</emphasis> - Your UIUC Active Directory Password</listitem>
+					</itemizedlist>
+					<figure>
+						<title>New Repository Location Window</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap1-installNibbler2.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+					Click Finish
+				</listitem>
+				<listitem>
+					Select File > New  > Expand the SVN folder > Project from SVN
+				</listitem>
+				<listitem>
+					Select the newly created repository location in the next window
+				</listitem>
+				<listitem>
+					Add <code>/trunk</code> to the end of the URL on the next window and select Head Revision
+					<figure>
+						<title>Checkout from SVN</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap1-installNibbler3.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+					Click Finish.
+				</listitem>
+				<listitem>
+					On the next window, select the option "Find Projects in the Children of the Selected Resource". Click Finish.
+				</listitem>
+				<listitem>
+					Subversive will then recursively scan the repository to find projects. This will take a minute or so. On the window
+					that appears next, select all of the projects then click Finish.
+					<figure>
+						<title>Checkout Projects</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/ap1-installNibbler4.jpeg" format="jpeg" /> 
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</listitem>
+				<listitem>
+					All the code will now be downloaded from the repository into your workspace.
+				</listitem>
+			</orderedlist>
+		</section>
+	</section>
+</appendix>

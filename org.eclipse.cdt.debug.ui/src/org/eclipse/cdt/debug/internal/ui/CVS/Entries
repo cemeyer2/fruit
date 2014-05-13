@@ -1,0 +1,42 @@
+/BreakpointImageProvider.java/1.4/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/CBreakpointContext.java/1.1/Fri Jan 25 22:58:15 2008//TCDT_5_0_0
+/CBreakpointUpdater.java/1.10/Thu Jun 14 18:49:10 2007//TCDT_5_0_0
+/CBreakpointWorkbenchAdapterFactory.java/1.6/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/CDebugImageDescriptorRegistry.java/1.10/Thu Jun 14 18:49:10 2007/-ko/TCDT_5_0_0
+/CDebugImages.java/1.47/Wed Oct  3 14:46:31 2007/-ko/TCDT_5_0_0
+/CDebugModelPresentation.java/1.30/Tue May 20 20:06:08 2008//TCDT_5_0_0
+/CDebugUIMessages.java/1.7/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/CDebugUIMessages.properties/1.18/Mon Jun 18 20:53:34 2007//TCDT_5_0_0
+/CDebugUIPreferenceInitializer.java/1.6/Wed May 14 15:39:23 2008//TCDT_5_0_0
+/CDebugUIUtils.java/1.14/Wed May 21 20:41:48 2008/-ko/TCDT_5_0_0
+/CDebuggerPageAdapter.java/1.2/Fri Jun 23 17:26:19 2006//TCDT_5_0_0
+/CValueDetailProvider.java/1.3/Thu Jun 23 16:00:53 2005//TCDT_5_0_0
+/CWatchExpressionDelegate.java/1.4/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/ColorManager.java/1.6/Fri Jun 23 17:52:33 2006/-ko/TCDT_5_0_0
+/DebugMarkerAnnotationModel.java/1.5/Mon May 21 07:49:06 2007//TCDT_5_0_0
+/DebugMarkerAnnotationModelFactory.java/1.4/Fri Jun 23 17:26:19 2006//TCDT_5_0_0
+/DetailsViewerConfiguration.java/1.2/Mon Jun 27 03:46:49 2005//TCDT_5_0_0
+/ErrorStatusHandler.java/1.8/Mon Jun 18 20:53:34 2007/-ko/TCDT_5_0_0
+/EvaluationContextManager.java/1.2/Thu Jun 23 16:00:52 2005//TCDT_5_0_0
+/HTMLPrinter.java/1.6/Fri Jun 23 17:26:19 2006//TCDT_5_0_0
+/ICDebugHelpContextIds.java/1.31/Fri Jan 25 22:58:15 2008/-ko/TCDT_5_0_0
+/IInternalCDebugUIConstants.java/1.10/Mon Apr  7 17:31:50 2008//TCDT_5_0_0
+/InfoStatusHandler.java/1.8/Fri Jun 23 17:52:33 2006/-ko/TCDT_5_0_0
+/OverlayImageCache.java/1.6/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/OverlayImageDescriptor.java/1.6/Fri Jun 23 17:52:33 2006//TCDT_5_0_0
+/PixelConverter.java/1.7/Fri Jun 23 17:26:19 2006/-ko/TCDT_5_0_0
+/QuestionStatusHandler.java/1.8/Fri Jun 23 17:52:33 2006/-ko/TCDT_5_0_0
+/SWTUtil.java/1.7/Thu Jun 14 18:49:10 2007/-ko/TCDT_5_0_0
+/SingleCharReader.java/1.6/Fri Jun 23 17:26:19 2006//TCDT_5_0_0
+/SubstitutionTextReader.java/1.6/Fri Jun 23 17:26:19 2006//TCDT_5_0_0
+D/actions////
+D/dialogfields////
+D/dialogs////
+D/disassembly////
+D/editors////
+D/elements////
+D/preferences////
+D/propertypages////
+D/sourcelookup////
+D/views////
+D/wizards////

@@ -1,0 +1,124 @@
+package edu.uiuc.cs427.nibbler.fruit.core.tests;
+
+import edu.uiuc.cs427.nibbler.fruit.core.FruitLaunchManager;import org.eclipse.core.runtime.*;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.cdt.core.model.*;
+import org.eclipse.cdt.managedbuilder.core.*;
+import org.eclipse.cdt.managedbuilder.internal.core.Configuration;
+import org.eclipse.cdt.managedbuilder.internal.core.ManagedProject;
+import org.eclipse.cdt.core.settings.model.*;
+import org.eclipse.cdt.core.settings.model.extension.CConfigurationData;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import org.eclipse.cdt.managedbuilder.core.IConfiguration;
+import org.eclipse.cdt.managedbuilder.core.ManagedBuildManager;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.cdt.core.settings.model.ICConfigurationDescription;
+import org.eclipse.cdt.core.settings.model.ICProjectDescription;
+import edu.uiuc.cs427.nibbler.fruit.core.driverGenerator.FruitGen;
+import junit.framework.TestCase;
+
+import org.eclipse.cdt.core.model.CoreModel;
+import org.eclipse.cdt.core.settings.model.ICConfigurationDescription;
+import org.eclipse.cdt.core.settings.model.ICProjectDescription;
+import org.eclipse.core.resources.*;
+import org.eclipse.core.runtime.NullProgressMonitor;
+
+public class FruitLaunchManagerTest extends TestCase {
+
+	FruitLaunchManager flm;
+	IProject project;
+	
+	public FruitLaunchManagerTest(String name) {
+		super(name);
+	}
+
+	protected void setUp() throws Exception {
+		super.setUp();
+		
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		project = projects[0];
+		flm = new FruitLaunchManager(projects[0]);
+	}
+
+	protected void tearDown() throws Exception {
+		super.tearDown();
+	}
+	
+	public void testGenerateSkeleton()
+	{
+		IFile fileUnderTest = project.getFile("calculator.f90");
+		flm.generateSkeleton(new NullProgressMonitor(), fileUnderTest, "calculator");
+		
+		checkForSkeletonFiles("calculator");
+		checkForFruitConfiguration("calculator");
+		checkBuildConfigurationForFRUITExclusion("calculator.f90");
+		
+	}
+	
+	private void checkForSkeletonFiles(String moduleUnderTestName )
+	{
+		IFile fruitTestFile = project.getFile( moduleUnderTestName + "_test.f90" );
+		IFile fruitDriverFile = project.getFile( "fruit_test_driver.f90" );
+		IFile fruitBasketFile = project.getFile( "fruit_basket_gen.f90" );
+		
+		assertTrue( fruitTestFile.exists() );
+		assertTrue( fruitDriverFile.exists() );
+		assertTrue( fruitBasketFile.exists() );
+	}
+	
+	private void checkForFruitConfiguration(String moduleUnderTestName)
+	{
+		ICProjectDescription des = CoreModel.getDefault().getProjectDescription(project);
+		ICConfigurationDescription[] allConfigs = des.getConfigurations();
+		int i;
+		IFile fruitTestFile = project.getFile( moduleUnderTestName + "_test.f90" );
+		IFile fruitDriverFile = project.getFile( "fruit_test_driver.f90" );
+		IFile fruitBasketFile = project.getFile( "fruit_basket_gen.f90" );
+		boolean foundTest = false, foundDriver = false, foundBasket = false;
+		
+		for ( i = 0; i < allConfigs.length; i++ )
+		{
+			if ( allConfigs[i].getName().equals("FRUIT") )
+			{
+				break;
+			}
+		}
+		
+		assertEquals( allConfigs[i].getName(), "FRUIT");
+		
+		ICSourceEntry[] sourceEntries = allConfigs[i].getSourceEntries();
+		IPath[] paths = sourceEntries[0].getExclusionPatterns();
+		
+		for ( int j = 0; j < paths.length; j++ )
+		{
+			if ( paths[i].equals( fruitTestFile ) )
+			{
+				foundTest = true;
+			}
+			
+			if ( paths[i].equals( fruitDriverFile ) )
+			{
+				foundDriver = true;
+			}
+
+			if ( paths[i].equals( fruitBasketFile ) )
+			{
+				foundBasket = true;
+			}
+
+		}
+
+		assertTrue( foundTest );
+		assertTrue( foundDriver );
+		assertTrue( foundBasket );
+	}
+	
+	private void checkBuildConfigurationForFRUITExclusion(String filename)
+	{
+		
+	}
+
+}

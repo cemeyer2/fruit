@@ -1,0 +1,13 @@
+/FixedFormLexerPhase1.java/1.4/Tue Aug 26 22:45:10 2008//
+/FixedFormLexerPhase2.java/1.2/Thu Aug 16 22:58:21 2007//
+/FixedFormLexerPrepass.java/1.2/Thu Aug 16 22:58:21 2007//
+/FreeFormLexerPhase1.java/1.4/Tue Aug 26 22:45:10 2008//
+/FreeFormLexerPhase2.java/1.5/Tue Aug 26 22:45:10 2008//
+/ILexer.java/1.2/Thu Aug 16 22:58:21 2007//
+/IToken.java/1.2/Thu Aug 16 22:58:21 2007//
+/LineAppendingInputStream.java/1.2/Thu Aug 16 22:58:21 2007//
+/LineInputStream.java/1.2/Thu Aug 16 22:58:21 2007//
+/SimpleToken.java/1.2/Thu Aug 16 22:58:21 2007//
+/SimpleTokenFactory.java/1.2/Thu Aug 16 22:58:21 2007//
+/Terminal.java/1.5/Tue Aug 26 22:45:10 2008//
+/TokenFactory.java/1.2/Thu Aug 16 22:58:21 2007//

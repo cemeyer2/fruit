@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="chapter2">
+	<title>Architecture and Design</title>
+	<section id="Overview-ch2">
+		<title>Overview</title>
+		<para>
+			We broke up our project into several distinct units of functionality that were coded independently then integrated
+			together near the end of the development process. The integration of the FRUIT library and driver generation tools 
+			into the Photran framework required several complex changes to a build system that expects to generate a single binary 
+			executable from a series of Fortran source files.  In addition the FRUIT distribution contains some Ruby scripts that 
+			generate some driver files necessary to exercise the FRUIT tests.
+		</para>
+		<para>
+			<figure>
+                <title>Nibbler UML Diagram</title>
+            	<mediaobject>
+                    <imageobject>
+                    	<imagedata fileref="images/ch2-uml.jpeg" format="jpeg" align="center" contentwidth="7in"  /> 
+                	</imageobject>
+            	</mediaobject>
+        	</figure>
+		</para>
+	</section>
+	<section id="Components-ch2">
+		<title>Components</title>
+		<section id="UserInterface-ch2">
+			<title>User Interface</title>
+			<para>
+				The user interface was designed and modeled after the JUnit view that is shipped with the standard Eclipse
+				distribution. At first, it was decided to take the JUnit view code and simply modify it to hook into the
+				other components that had been created for FRUIT testing. 
+			</para>
+			<para>
+				After some initial discovery, it was determined	that it would make more sense to create a completely new 
+				view plugin from scratch and port bits of JUnit	code to the new view to emulate the look and feel of JUnit. 
+				This way, the resulting PUnit view is custom built to read directly from the FRUIT parser component and display 
+				results accordingly. The JUnit labels, images, and status bar were all able to be ported easily, but to display 
+				the FRUIT parser's output more efficiently, a table was chosen in place of the existing JUnit GUI components. 
+				This table displays the	output in a friendly, condensed form.
+			</para>
+			<section id="PUnitView-ch2">
+			 <para>
+			 The PUnit view is an extension to org.eclipse.views. It provides an informative GUI displaying test summaries. 
+			 It is designed and modeled after the JUnit view. New views are created in Eclipse by defining a category and the 
+			 view in the plug-in manifest file. Since the PUnit view is used for Fortran testing, it is added to the Fortran category. 
+			 The view needs a name, an id, and a class.  
+			 The view is displayed by running the runtime workbench and going to Window->Show
+View->Other->Fortran->PUnit
+
+			 </para>
+
+                        <figure>
+                            <title>PUnit View</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="images/ch2-punitview.jpeg" format="jpeg" /> 
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+			 
+			 <para>
+			 In Eclipse, views must implement the IViewPart interface. The abstract class ViewPart, which is a subclass of WorkbenchPart 
+			 implements that interface. The PUnit view class, PunitView implements the IViewPart interface by subclassing the ViewPart 
+			 abstract class. The view is built using the Composite pattern. 
+            The view is composed of three major elements defined in the required CreatePartControl(Composite) method, which creates the 
+            controls comprising the view: 
+			 </para>
+			 
+			 <itemizedlist>
+			     <listitem>
+			     The counter panel is a panel that displays the counters for the number of Runs, Errors, and failure. The CounterPanel 
+			     Class is a Subclass of Composite which is contained in the Composite Parent. 
+			     </listitem>
+                 <listitem>
+                 The Progress bar is a JUnit like progress bar, which turns green for test success and red for failures. The PUnitProgressBar 
+                 Class is a subclass of Canvas and has a constructor that takes the parent Composite of the view. 
+                 </listitem>
+                 <listitem>
+                 A Table viewer that displays the result of the test. Each row represents a test while each column represents an attribute 
+                 of the test: name, Elapsed time, Test passed, Expected value, Actual value. Each row of the table is colored in red or green 
+                 depending on if the test passed or failed. The Tableviewer must be configured with a content provider; witch implements the 
+                 IStructureContenProvider interface and Label provider, witch must implement the IBaseLabelProvider. 
+                 </listitem>
+			 </itemizedlist>
+			 
+			 <para>
+			 The result of Fruit tests are represented in FruitAssertionMessages objects. The contain provider class 
+			 FruitAssertionMessageContentProvider implements the required getElements method, which returns a list of FruitAssertionMessages 
+			 to display. 
+
+The Label provider class FruitAssertionMessageLabelProvider is a subclass of LabelProvider and implements the ITableLabelProvider. 
+This interface extends IBaseLabelProvider with method to provide text and image for each column of a given test. This class creates the 
+column of the table with the 5 tests attributes:  Test name, Elapsed Time, Test Passed, Expected Value, Actual Value.
+
+The output generated by the fruit parser is used to populate the PUnitview.  
+
+Below is a Class diagram of important classes: 
+             </para>
+                        <figure>
+                            <title>PUnit View Class Diagram</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="images/ch2-punit_class.jpeg" format="jpeg" /> 
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+
+
+			 
+			</section>
+		</section>
+		<section id="TestCaseGeneration-ch2">
+			<title>Test Case Generation</title>
+            <para>
+                When a user wishes to create a new FRUIT test case two options exist that are supported by the Photran FRUIT system.
+                First the user can create the FRUIT test case completely manually by just creating a new Fortran source file in
+                Photran and following the appropriate rules for creating a FRUIT Test Case.  The Photran FRUIT tools can handle
+                test cases that are created manually in this fashion, and will be automatically detected by the build system when a 
+                Build and Launch occurs.
+            </para>
+            <para>
+                In addition to the manual procedure Photran now provides a wizard based test case generation procedures.  This
+                provides a means to create a minimal skeleton test case in a similar means to that provide by the JUnit framework 
+                within Eclipse.  Under the File->New hierachy the user will be able to select "New Fruit Test Case".  This
+                wizard will prompt for the Fortran file that the test case will test, along with the name of the Fortran module
+                within that file.  Upon completion of the wizard, a new skeleton test case file will be created that provides
+                some of the framework required to build a FRUIT test case.  
+            </para>
+		</section>
+		<section id="BuildAndLaunchSystem-ch2">
+			<title>Build and Launch System</title>
+			<section id="Build-ch2">
+				<title>Building</title>
+				<para>
+					When the user performs a normal system build Photran will perform the build as normal, the FRUIT code will 
+					not affect normal builds except for the fact that the fruit_test_driver.f90 is excluded from the build.
+				</para>
+				<para>
+					When a user runs the “Run Fruit Test” context menu entry on the project, the FRUIT build system will take over.  
+					The FruitLaunchManager module will take over at this point and get Photran into a state to display the results 
+					of the FRUIT tests.
+				</para>
+				<para>
+					First the system will verify that the FRUIT configuration is up to date with all the latest test case files 
+					that are in the system.  The system will also update the fruit_test_driver.f90 and fruit_basket_gen.f90 files 
+					which comprise the FRUIT test driver application.
+				</para>
+				<para>
+					Photran will then instruct the build system to build the FRUIT configuration.  The configuration is explicitly 
+					built since there appear to be some issues with trusting the Eclipse Launching system to always automatically 
+					rebuild it when necessary.  
+				</para>
+			</section>
+			<section id="Execution-ch2">
+				<title>Execution</title>
+				<para>
+					Once the FRUIT configuration is successfully built, Photran will verify that a correct Launch Configuration 
+					exists to execute the FRUIT test driver correctly.  This Launch Configuration consists of a link to the actual 
+					application along with a variety of configuration settings.  The core changes from a standard Launch Configuration 
+					that are used for FRUIT are that the application will not be connected to a console, and the output will be 
+					redirected to a file “fruit_output.log”.  This file will contain the output of the FRUIT run that will be parsed 
+					and loaded into the PUnit view.
+				</para>
+				<para>
+					Since aspects of the execution actually run in the background after the context menu handler exits, a way is 
+					needed to communicate to the view that a new fruit_output.log file is available to be parsed and displayed.  
+					PUnitView will listen for DebugEvents to determine when the FRUIT test application has finished execution and 
+					sends the TERMINATE event.
+				</para>
+			</section>
+		</section>
+		<section id="DriverGenerationAndOutputParsing-ch2">
+			<title>Driver Generation and Output Parsing</title>
+			<section id="DriverGeneration-ch2">
+				<title>Driver Generation</title>
+				<para>
+					Before the FRUIT tests can be built and run they first needs some setup code to be built that is specific to 
+					each test suite.  Since Fortran doesn’t support Reflection as is the case with Java, FRUIT cannot directly find 
+					these tests cases and execute them without any assistance as is the case with JUnit.
+				</para>
+				<para>
+					In the FRUIT distribution there exists a collection of Ruby scripts that will parse the Fortran files in a given 
+					project and generate the appropriate driver files from the test case source files.  For this project this code 
+					needed to be integrated into Photran so that this process could be automatically run whenever the FRUIT test cases 
+					need to be rebuilt and run.
+				</para>
+				<para>
+					In order to accomplish this the Ruby scripts were rewritten in Java and integrated into Photran.  When the driver 
+					generator is run it will scan through all the all the files in the directory provided to determine which ones 
+					contain test cases and will then add these tests to the overall driver.
+				</para>
+			</section>
+		</section>
+	</section>
+</chapter>

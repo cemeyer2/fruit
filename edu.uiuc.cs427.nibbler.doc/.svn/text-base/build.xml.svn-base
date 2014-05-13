@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<project name="doc" default="all">
+
+	<description>
+		Build documentation for nibbler
+	</description>
+	
+	<property file="ant.properties"/>
+	
+	<taskdef name="xinclude" classname="org.znerd.xincludetask.XIncludeTask" >
+		<classpath>
+			<fileset dir="${lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
+	
+	<taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
+		<classpath>
+	        <fileset dir="${lib.dir}">
+	        	<include name="*.jar" />
+	        </fileset>
+		</classpath>
+	</taskdef>
+	
+	
+	
+	<path id="xalan.classpath">
+		<fileset dir="${basedir}/lib">
+			<include name="${xalan.jar}"/>
+			<include name="${xerces.jar}"/>
+			<include name="${serializer.jar}"/>
+		</fileset>
+	</path>
+	
+	<target name="clean" description="clean up" depends="clean-zips">
+		<delete dir="${doc.dir}" />
+	</target>
+	
+	<target name="clean-zips">
+		<delete dir="${docbook.xml.dir}" />
+		<delete dir="${docbook.xsl.dir}" />
+		<delete dir="temp" />
+	</target>
+		
+	<target name="depends">
+		<tstamp>
+			<format property="build.timestamp" pattern="MM/dd/yyyy hh:mm aa"/>
+		</tstamp>			
+		<buildnumber/>
+		<echo message="Starting new build #${build.number} for ${ant.project.name} at ${build.timestamp}"/>
+			
+		<mkdir dir="${doc.dir}"/>
+		<mkdir dir="${docbook.xml.dir}" />
+		<unzip src="${docbook.xml.zip}" dest="${docbook.xml.dir}"/>
+		<unzip src="${docbook.xsl.zip}" dest="${basedir}" />
+		<mkdir dir="temp" />
+		<copydir dest="temp/images" src="src/images" />
+		<copydir dest="doc/images" src="src/images" />
+	</target>
+	
+	<target name="all" depends="build-pdf, build-html, clean-zips" />
+	
+	<target name="processxincludes">
+		<xinclude in="src/Documentation.xml" out="temp/Documentation.xml" />
+	</target>
+	
+	<target name="build-html" depends="depends, processxincludes" description="builds documentation in html format">
+		<xslt style="${html.stylesheet}" extension=".html" basedir="temp" destdir="${doc.dir}" includes="Documentation.xml">
+			<classpath refid="xalan.classpath" />
+		</xslt>
+	</target>
+	
+	<target name="build-pdf" depends="depends, processxincludes" description="builds documentation in pdf format">
+		<xslt style="${fo.stylesheet}" extension=".fo" basedir="temp" destdir="temp" includes="Documentation.xml">
+			<classpath refid="xalan.classpath" />
+		</xslt>
+		
+		
+		<fop format="application/pdf" fofile="temp/Documentation.fo"
+			outfile="${doc.dir}/NibblerDocumentation.pdf" />
+	</target>
+	
+</project>

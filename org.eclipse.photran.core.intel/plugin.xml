@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+     <extension
+         id="IntelCompilerErrorParser"
+         name="Photran Error Parser for Intel(R) Compilers"
+         point="org.eclipse.cdt.core.ErrorParser">
+      <errorparser
+            class="org.eclipse.photran.intel.internal.errorparsers.IntelCompilerErrorParser">
+      </errorparser>
+   </extension>
+
+</plugin>
